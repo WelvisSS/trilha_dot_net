@@ -7,9 +7,9 @@ using System.Text;
 
 namespace HabilityCount;
 
-    public static class Matheus
-    {
-        public static string Name => "Matheus Fonseca";
+public static class Matheus
+{
+      public static string Name => "Matheus Fonseca";
       public static List<(string, int)> Skills => new List<(string, int)>{
            ("Fundamentos de C#", 4),
             ("Habilidades Gerais de Desenvolvimento", 4),
@@ -33,12 +33,14 @@ namespace HabilityCount;
             ("Bibliotecas adicionais", 1)
 
          };
-      public static string View(){
+      public static string View()
+      {
             var sb = new StringBuilder();
             sb.AppendLine($"Nome: {Name}");
             sb.AppendLine();
             sb.AppendLine("Habilidades:");
-            foreach(var skill in Skills){
+            foreach (var skill in Skills)
+            {
                   sb.AppendLine($"\t{skill.Item1} - {skill.Item2} estrelas");
             }
             var sum = Skills.Sum(x => x.Item2);
@@ -46,4 +48,4 @@ namespace HabilityCount;
             sb.AppendLine($"Total de estrelas: {sum}");
             return sb.ToString();
       }
-    }
+}
