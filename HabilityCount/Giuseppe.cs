@@ -1,5 +1,5 @@
 using System.Text;
-namespace Roadmap_ASP_NET_CORE;
+namespace HabilityCount;
 
 public static class Giuseppe
 {
