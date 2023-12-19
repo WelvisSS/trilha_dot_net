@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text;
 
-namespace HabilityCount
-{
+
+namespace HabilityCount;
+
     public static class  Eduardo
     {
         public static string Name => "Eduardo Matheus de Menezes Souto";
@@ -48,4 +50,4 @@ namespace HabilityCount
             return sb.ToString();
       }
     }
-}
+
