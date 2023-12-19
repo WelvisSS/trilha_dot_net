@@ -1,16 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-namespace Roadmap_ASP_NET_CORE;
+using System.Threading.Tasks;
 
-public static class Giuseppe
+namespace HabilityCount;
+
+public static class Wilton
 {
-    public static string Name => "Giuseppe";
+    public static string Name => "Wilton";
     public static List<(string, int)> Skills => new List<(string, int)>{
-        ("Fundamentos de C#", 4),
-        ("Habilidades Gerais de Desenvolvimento", 4),
+        ("Fundamentos de C#", 3),
+        ("Habilidades Gerais de Desenvolvimento", 2),
         ("Fundamentos de Banco de Dados", 1),
         ("Fundamentos basicos de ASP.NET Core", 2),
-        ("ORM", 1),
-        ("Injeção de Dependencia", 3),
+        ("ORM", 0),
+        ("Injeção de Dependencia", 1),
         ("Caching", 1),
         ("Log Frameworks", 1),
         ("Banco de Dados", 1),
@@ -28,7 +33,7 @@ public static class Giuseppe
          };
     public static string View()
     {
-        var sb = new StringBuilder();
+        var sb = new System.Text.StringBuilder();
         sb.AppendLine($"Nome: {Name}");
         sb.AppendLine();
         sb.AppendLine("Habilidades:");
