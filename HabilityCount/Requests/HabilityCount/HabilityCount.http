@@ -1,2 +1,7 @@
-@host = http://localhost:5030
-GET {{host}}/eduardo
+@host = http://localhost:5271
+# GET {{host}}/eduardo/
+# GET {{host}}/wilton/
+# GET {{host}}/welvis/
+# GET {{host}}/matheus>/
+# GET {{host}}/giuseppe/
+
