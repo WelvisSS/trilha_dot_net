@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 
 namespace HabilityCount
 {
-    public class static Eduardo
+    public static class  Eduardo
     {
         public static string Name => "Eduardo Matheus de Menezes Souto";
       public static List<(string, int)> Skills => new List<(string, int)>{
             ("Fundamentos de C#", 5),
             ("Habilidades Gerais de Desenvolvimento",5),
-            ("Fundamentos de Banco de Dados",5)("Fundamentos de C#", 4),
+            ("Fundamentos de Banco de Dados",5),
+            ("Fundamentos de C#", 4),
             ("Habilidades Gerais de Desenvolvimento", 4),
             ("Fundamentos de Banco de Dados", 4),
             ("Fundamentos basicos de ASP.NET Core", 2),
