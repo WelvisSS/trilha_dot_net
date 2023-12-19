@@ -2,11 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-<<<<<<< HEAD:HabilityCount/Giuseppe.cs
-namespace HabilityCount;
-=======
-using System.Threading.Tasks;
->>>>>>> DOTNET-P002/id_03_Wilton:HabilityCount/Wilton.cs
 
 namespace HabilityCount;
 
