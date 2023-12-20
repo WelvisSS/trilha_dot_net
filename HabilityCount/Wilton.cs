@@ -30,6 +30,11 @@ public static class Wilton
         ("Engine de template", 1),
         ("Bibliotecas adicionais", 1)
          };
+    public static int sumStars()
+    {
+        int sum = Skills.Sum(skill => skill.Item2);
+        return sum;
+    }
     public static string View()
     {
         var sb = new System.Text.StringBuilder();
