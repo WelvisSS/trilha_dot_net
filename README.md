@@ -1,2 +1,1 @@
-# trilha_dot_net
-Repositório para a trilha de .net
+Essa tarefa baseia-se no projeto básico de arquitetura limpa proposto pelo Prof. José Carlos Macoratti. Siga o passo-a-passo proposto por ele na playlist com 5 vídeos inserida no Moodle. O link para o repositório disponibilizado pelo professor Macoratti também foi disponibilizado no Moodle.
