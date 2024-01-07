@@ -1,5 +1,6 @@
 using CleanArchtecture.Domain.Entities;
 using CleanArchtecture.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,19 @@ namespace CleanArchtecture.Persistence.Repositories
         public void Update(T entitity){
             entity.DateCreated = DateTimeOffset.UtcNow;
             Context.Update(entitity);
+        }
+
+        public void Delete(T entity){
+            entity.DateDeleted = DateTimeOffset.UtcNow;
+            Context.Remove(entity);
+        }
+
+        public async Task<T> Get(Guid id, CancellationToken cancellationToken){
+            return await Context.Set<T>().FirstOrDefaultAsync(x=> x.Id == id, cancellationToken);
+        }
+
+        public async Task<List<T>> GetAll(CancellationToken cancellationToken){
+            return await Context.Set<T>().ToListAsync(cancellationToken);
         }
     }
 }
