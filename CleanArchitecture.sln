@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C91784EC-A1E8-4FAC-B986-BB56F7467AD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{12CF9DB2-3713-4AC4-88D1-644336B09881}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{118F1EBE-BED2-4C01-8966-9B55FE07ECB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F7A0E546-C359-4C59-861B-3A2D6DFD304D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchtecture.API", "CleanArchtecture.API\CleanArchtecture.API.csproj", "{E3FD532C-2A3A-4F02-9715-44D46376CF0F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchtecture.Application", "CleanArchtecture.Application\CleanArchtecture.Application.csproj", "{5C1CD5D9-C7D9-4921-A77E-DAF3A46C2338}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchtecture.Domain", "CleanArchtecture.Domain\CleanArchtecture.Domain.csproj", "{927E69B1-CE79-484C-94F9-08EE37B00151}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchtecture.Tests", "CleanArchtecture.Tests\CleanArchtecture.Tests.csproj", "{C86EBCBB-F709-4B92-9A64-A037BE71A7AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchtecture.Persistence", "CleanArchtecture.Persistence\CleanArchtecture.Persistence.csproj", "{6CE36CF1-4EC5-4B98-8AD6-05EFBBC902B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3FD532C-2A3A-4F02-9715-44D46376CF0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FD532C-2A3A-4F02-9715-44D46376CF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FD532C-2A3A-4F02-9715-44D46376CF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FD532C-2A3A-4F02-9715-44D46376CF0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1CD5D9-C7D9-4921-A77E-DAF3A46C2338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1CD5D9-C7D9-4921-A77E-DAF3A46C2338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1CD5D9-C7D9-4921-A77E-DAF3A46C2338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1CD5D9-C7D9-4921-A77E-DAF3A46C2338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927E69B1-CE79-484C-94F9-08EE37B00151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927E69B1-CE79-484C-94F9-08EE37B00151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927E69B1-CE79-484C-94F9-08EE37B00151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927E69B1-CE79-484C-94F9-08EE37B00151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C86EBCBB-F709-4B92-9A64-A037BE71A7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C86EBCBB-F709-4B92-9A64-A037BE71A7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C86EBCBB-F709-4B92-9A64-A037BE71A7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C86EBCBB-F709-4B92-9A64-A037BE71A7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CE36CF1-4EC5-4B98-8AD6-05EFBBC902B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE36CF1-4EC5-4B98-8AD6-05EFBBC902B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE36CF1-4EC5-4B98-8AD6-05EFBBC902B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE36CF1-4EC5-4B98-8AD6-05EFBBC902B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3FD532C-2A3A-4F02-9715-44D46376CF0F} = {118F1EBE-BED2-4C01-8966-9B55FE07ECB2}
+		{5C1CD5D9-C7D9-4921-A77E-DAF3A46C2338} = {C91784EC-A1E8-4FAC-B986-BB56F7467AD1}
+		{927E69B1-CE79-484C-94F9-08EE37B00151} = {C91784EC-A1E8-4FAC-B986-BB56F7467AD1}
+		{C86EBCBB-F709-4B92-9A64-A037BE71A7AF} = {F7A0E546-C359-4C59-861B-3A2D6DFD304D}
+		{6CE36CF1-4EC5-4B98-8AD6-05EFBBC902B5} = {12CF9DB2-3713-4AC4-88D1-644336B09881}
+	EndGlobalSection
+EndGlobal
