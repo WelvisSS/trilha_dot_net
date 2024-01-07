@@ -1,5 +1,5 @@
-using CleanArchitecture.Domain.Entities;
-namespace CleanArchitecture.Domain.Interfaces;
+using CleanArchtecture.Domain.Entities;
+namespace CleanArchtecture.Domain.Interfaces;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {

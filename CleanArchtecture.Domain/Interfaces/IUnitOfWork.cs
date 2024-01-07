@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Interfaces;
+namespace CleanArchtecture.Domain.Interfaces;
 
 public interface IUnitOfWork
 {
