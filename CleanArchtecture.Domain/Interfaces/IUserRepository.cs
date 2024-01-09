@@ -1,6 +1,6 @@
-using CleanArchitecture.Domain.Entities;
+using CleanArchtecture.Domain.Entities;
 
-namespace CleanArchitecture.Domain.Interfaces;
+namespace CleanArchtecture.Domain.Interfaces;
 
 public interface IUserRepository : IBaseRepository<User>
 {
