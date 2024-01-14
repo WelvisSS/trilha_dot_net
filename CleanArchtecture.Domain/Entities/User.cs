@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Domain.Entities;
+namespace CleanArchtecture.Domain.Entities;
 
 public sealed class User : BaseEntity
 {
