@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberApp.Domain", "BarberApp.Domain\BarberApp.Domain.csproj", "{972C37BC-3E74-4EFB-82D4-5C34386B3F04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaberApp.Persistence", "BaberApp.Persistence\BaberApp.Persistence.csproj", "{AF1A5BBD-209F-4584-922D-CFA2C80E7057}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{972C37BC-3E74-4EFB-82D4-5C34386B3F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{972C37BC-3E74-4EFB-82D4-5C34386B3F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{972C37BC-3E74-4EFB-82D4-5C34386B3F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1A5BBD-209F-4584-922D-CFA2C80E7057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1A5BBD-209F-4584-922D-CFA2C80E7057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1A5BBD-209F-4584-922D-CFA2C80E7057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1A5BBD-209F-4584-922D-CFA2C80E7057}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
