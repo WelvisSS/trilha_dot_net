@@ -3,6 +3,7 @@ using System;
 using BarberApp.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaberApp.Persistence.Migrations
 {
     [DbContext(typeof(BarberAppContext))]
-    partial class BarberAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240118024654_RequestToServices_Migrations")]
+    partial class RequestToServices_Migrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +64,6 @@ namespace BaberApp.Persistence.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
 
                     b.HasKey("EmployeeId");
 
@@ -159,8 +159,6 @@ namespace BaberApp.Persistence.Migrations
 
                     b.HasKey("ServiceId");
 
-                    b.HasIndex("EmployeeId");
-
                     b.HasIndex("RequestId");
 
                     b.ToTable("Services", (string)null);
@@ -214,19 +212,11 @@ namespace BaberApp.Persistence.Migrations
 
             modelBuilder.Entity("BarberApp.Domain.Entities.Service", b =>
                 {
-                    b.HasOne("BarberApp.Domain.Entities.Employee", "Employee")
-                        .WithMany("Services")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BarberApp.Domain.Entities.Request", "Request")
                         .WithMany("Services")
                         .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Employee");
 
                     b.Navigation("Request");
                 });
@@ -243,8 +233,6 @@ namespace BaberApp.Persistence.Migrations
                 {
                     b.Navigation("Person")
                         .IsRequired();
-
-                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("BarberApp.Domain.Entities.LegalPerson", b =>
