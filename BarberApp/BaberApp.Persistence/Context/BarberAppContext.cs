@@ -61,6 +61,11 @@ public class BarberAppContext : DbContext
             .WithMany(m => m.Services)
             .HasForeignKey(a => a.RequestId);
 
+        modelBuilder.Entity<Service>()
+            .HasOne(a => a.Employee)
+            .WithMany(m => m.Services)
+            .HasForeignKey(a => a.EmployeeId);
+
     }
 }
 

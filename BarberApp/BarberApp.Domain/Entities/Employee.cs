@@ -7,4 +7,7 @@ public class Employee
     public required string PhoneNumber { get; set; }
 
     public required Person Person { get; set; }
+
+    public required int ServiceId { get; set; }
+    public ICollection<Service>? Services {get; set;}
 }

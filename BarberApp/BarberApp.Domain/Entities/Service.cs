@@ -10,4 +10,6 @@ public class Service
     public required DateTime Date { get; set; }
 
     public required Request Request {get; set;}
+
+    public required Employee Employee {get; set;}
 }
