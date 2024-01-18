@@ -8,4 +8,6 @@ public class Service
     public required double Amount { get; set; }
     public required int Quantity { get; set; }
     public required DateTime Date { get; set; }
+
+    public required Request Request {get; set;}
 }
