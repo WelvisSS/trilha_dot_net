@@ -3,6 +3,7 @@ using System;
 using BarberApp.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaberApp.Persistence.Migrations
 {
     [DbContext(typeof(BarberAppContext))]
-    partial class BarberAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240118024501_ClientToRequest_Migration")]
+    partial class ClientToRequest_Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

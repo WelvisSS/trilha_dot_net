@@ -29,7 +29,7 @@ public class BarberAppContext : DbContext
         modelBuilder.Entity<LegalPerson>().ToTable("LegalPersons").HasKey(a => a.LegalPersonId);
         modelBuilder.Entity<PhysicalPerson>().ToTable("PhysicalPersonss").HasKey(a => a.PhysicalPersonId);
         modelBuilder.Entity<Request>().ToTable("Requests").HasKey(a => a.RequestId);
-        
+        modelBuilder.Entity<Service>().ToTable("Services").HasKey(a => a.ServiceId);
 
         modelBuilder.Entity<LegalPerson>()
             .HasOne(a => a.Person)
@@ -55,6 +55,11 @@ public class BarberAppContext : DbContext
             .HasOne(a => a.Client)
             .WithMany(m => m.Requests)
             .HasForeignKey(a => a.ClientId);
+
+        modelBuilder.Entity<Service>()
+            .HasOne(a => a.Request)
+            .WithMany(m => m.Services)
+            .HasForeignKey(a => a.RequestId);
 
     }
 }
