@@ -1,4 +1,4 @@
-﻿using BarberApp.Domain.Entities;
+using BarberApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarberApp.Persistence.Context;
@@ -10,8 +10,6 @@ public class BarberAppContext : DbContext
     public DbSet<Employee> Employees { get; set; }
     public DbSet<LegalPerson> LegalPersons { get; set; }
     public DbSet<PhysicalPerson> PhysicalPersons { get; set; }
-    public DbSet<Request> Requests { get; set; }
-    public DbSet<Service> Services { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
