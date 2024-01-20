@@ -5,6 +5,10 @@ namespace ResTIConnect.Infrastructure.Context;
 public class ResTIConnectContext : DbContext
 {
     public DbSet<Log> Logs { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Perfis> Perfis { get; set; }
+    public DbSet<Enderecos> Enderecos { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -18,6 +22,9 @@ public class ResTIConnectContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Log>().ToTable("Logs").HasKey(m => m.LogId);
+        modelBuilder.Entity<User>().ToTable("Users").HasKey(m => m.UsuarioId);
+        modelBuilder.Entity<Perfis>().ToTable("Perfis").HasKey(m => m.PerfilId);
+        modelBuilder.Entity<Enderecos>().ToTable("Enderecos").HasKey(m => m.EnderecoId);
 
     }
 }
