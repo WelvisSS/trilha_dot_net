@@ -2,7 +2,7 @@
 
 namespace ResTIConnect.Domain.Interfaces;
 
-public interface IBaseRepository<T> where T : BaseEntity 
+public interface IBaseRepository<T> where T : BaseEntity
 {
 
 }
