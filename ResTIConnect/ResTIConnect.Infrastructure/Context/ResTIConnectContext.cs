@@ -12,7 +12,7 @@ public class ResTIConnectContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connectionString = "server=localhost;user=root;password=root;database=resticonnect";
+        var connectionString = "server=localhost;user=root;password=432747;database=resticonnect";
         var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         optionsBuilder.UseMySql(connectionString, serverVersion);
@@ -26,5 +26,14 @@ public class ResTIConnectContext : DbContext
         modelBuilder.Entity<Perfis>().ToTable("Perfis").HasKey(m => m.PerfilId);
         modelBuilder.Entity<Enderecos>().ToTable("Enderecos").HasKey(m => m.EnderecoId);
 
+        modelBuilder.Entity<Enderecos>()
+            .HasOne(a => a.User)
+            .WithOne(p => p.Endereco)
+            .HasForeignKey<User>(a => a.UsuarioId);
+
+        modelBuilder.Entity<Perfis>()
+            .HasOne(a => a.User)
+            .WithMany(m => m.Perfis)
+            .HasForeignKey(a => a.UsuarioId);
     }
 }

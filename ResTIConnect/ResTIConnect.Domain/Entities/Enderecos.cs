@@ -20,4 +20,8 @@ public class Enderecos
 
     public required string Pais { get; set; }
 
+    // public int UserId;
+    public User User {get; set;}
+
+
 }

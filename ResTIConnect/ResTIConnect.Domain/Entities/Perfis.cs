@@ -8,5 +8,7 @@ public class Perfis
 
     public required string Permissoes { get; set; }
 
-    public ICollection<User>? Users { get; set; }
+    public int UsuarioId {get; set;}
+    public User User {get; set;}
+    // public ICollection<User>? Users { get; set; }
 }
