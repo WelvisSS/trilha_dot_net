@@ -7,6 +7,7 @@ context.Perfis.RemoveRange(context.Perfis);
 context.Enderecos.RemoveRange(context.Enderecos);
 context.Users.RemoveRange(context.Users);
 context.Logs.RemoveRange(context.Logs);
+context.Eventos.RemoveRange(context.Eventos);
 
 context.SaveChanges();
 
@@ -128,3 +129,24 @@ context.SaveChanges();
 // context.Perfis.Add(perfil05);
 
 context.SaveChanges();
+
+Console.WriteLine($"Criar um evento no banco de dados");
+
+var evento01 = new Eventos{
+    Tipo = "Festa",
+    Descricao = "Festa de formatura de Eduardo",
+    Codigo = "01",
+    Conteudo = "Festa de fomatura",
+    DataHoraOcorrencia = DateTimeOffset.Parse("30/01/2024 19:00"),
+};
+
+var evento02 = new Eventos{
+    Tipo = "Reuniao",
+    Descricao = "Reuniao para inicio do projeto",
+    Codigo = "02",
+    Conteudo = "Definir metas e dividir atividades",
+    DataHoraOcorrencia = DateTimeOffset.Parse("25/01/2024 09:00"),
+};
+
+context.SaveChanges();
+
