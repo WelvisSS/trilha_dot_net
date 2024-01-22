@@ -10,11 +10,16 @@ public class BarberAppContext : DbContext
     public DbSet<Employee> Employees { get; set; }
     public DbSet<LegalPerson> LegalPersons { get; set; }
     public DbSet<PhysicalPerson> PhysicalPersons { get; set; }
+    public DbSet<Request> Requests { get; set; }
+    public DbSet<Service> Services { get; set; }
+    public DbSet<Estimate> Estimates { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
+
         var connectionString = "server=localhost;user=dotnet;password=tic2023;database=barberdb";
+
         var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         optionsBuilder.UseMySql(connectionString, serverVersion);
@@ -30,6 +35,7 @@ public class BarberAppContext : DbContext
         modelBuilder.Entity<PhysicalPerson>().ToTable("PhysicalPersonss").HasKey(a => a.PhysicalPersonId);
         modelBuilder.Entity<Request>().ToTable("Requests").HasKey(a => a.RequestId);
         modelBuilder.Entity<Service>().ToTable("Services").HasKey(a => a.ServiceId);
+        modelBuilder.Entity<Estimate>().ToTable("Estimates").HasKey(a => a.EstimateId);
 
         modelBuilder.Entity<LegalPerson>()
             .HasOne(a => a.Person)
@@ -65,6 +71,10 @@ public class BarberAppContext : DbContext
             .HasOne(a => a.Employee)
             .WithMany(m => m.Services)
             .HasForeignKey(a => a.EmployeeId);
+        
+        modelBuilder.Entity<Estimate>()
+            .HasMany(a => a.ServiceList)
+            .WithMany(m => m.EstimateList);
 
     }
 }
