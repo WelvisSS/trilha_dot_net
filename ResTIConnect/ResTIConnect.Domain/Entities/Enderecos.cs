@@ -2,7 +2,7 @@
 
 public class Enderecos
 {
-    public required int EnderecoId { get; set; }
+    public int EnderecoId { get; set; }
 
     public required string Logradouro { get; set; }
 
@@ -19,5 +19,9 @@ public class Enderecos
     public required string Estado { get; set; }
 
     public required string Pais { get; set; }
+
+    // public int UserId;
+    public User? User {get; set;}
+
 
 }

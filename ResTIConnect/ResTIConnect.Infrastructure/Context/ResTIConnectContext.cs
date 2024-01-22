@@ -26,5 +26,19 @@ public class ResTIConnectContext : DbContext
         modelBuilder.Entity<Perfis>().ToTable("Perfis").HasKey(m => m.PerfilId);
         modelBuilder.Entity<Enderecos>().ToTable("Enderecos").HasKey(m => m.EnderecoId);
 
+        modelBuilder.Entity<User>()
+            .HasOne(a => a.Endereco)
+            .WithOne(x => x.User)
+            .HasForeignKey<User>(a => a.EnderecoId);
+
+        // modelBuilder.Entity<Enderecos>()
+        //     .HasOne(a => a.User)
+        //     .WithOne(p => p.Endereco)
+        //     .HasForeignKey<User>(a => a.UsuarioId);
+
+        modelBuilder.Entity<Perfis>()
+            .HasOne(a => a.User)
+            .WithMany(m => m.Perfis)
+            .HasForeignKey(a => a.UsuarioId);
     }
 }
