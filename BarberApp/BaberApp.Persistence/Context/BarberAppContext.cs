@@ -17,7 +17,7 @@ public class BarberAppContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connectionString = "server=localhost;user=root;password=432747;database=barberdb";
+        var connectionString = "server=localhost;user=root;password=0000;database=barberdb";
         var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         optionsBuilder.UseMySql(connectionString, serverVersion);
