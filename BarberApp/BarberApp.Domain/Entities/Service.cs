@@ -12,4 +12,6 @@ public class Service
     public required Request Request {get; set;}
 
     public required Employee Employee {get; set;}
+
+    public required ICollection<Estimate> EstimateList {get; set;}
 }

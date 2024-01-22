@@ -10,6 +10,9 @@ public class BarberAppContext : DbContext
     public DbSet<Employee> Employees { get; set; }
     public DbSet<LegalPerson> LegalPersons { get; set; }
     public DbSet<PhysicalPerson> PhysicalPersons { get; set; }
+    public DbSet<Request> Requests { get; set; }
+    public DbSet<Service> Services { get; set; }
+    public DbSet<Estimate> Estimates { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -68,9 +71,8 @@ public class BarberAppContext : DbContext
             .HasForeignKey(a => a.EmployeeId);
         
         modelBuilder.Entity<Estimate>()
-            .HasOne(a => a.Estimate)
-            .WithMany(m => m.Services)
-            .HasForeignKey(a => a.EstimateId);
+            .HasMany(a => a.ServiceList)
+            .WithMany(m => m.EstimateList);
 
     }
 }
