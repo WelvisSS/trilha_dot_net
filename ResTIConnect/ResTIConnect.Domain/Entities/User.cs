@@ -4,7 +4,7 @@ namespace ResTIConnect.Domain.Entities;
 
 public class User : BaseEntity
 {
-    public required int UsuarioId { get; set; }
+    public int UsuarioId { get; set; }
 
     public required string Nome { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -6,11 +7,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ResTIConnect.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateEntityPerfilAndAdress : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.CreateTable(
                 name: "Enderecos",
                 columns: table => new
@@ -41,19 +45,23 @@ namespace ResTIConnect.Infrastructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Perfis",
+                name: "Logs",
                 columns: table => new
                 {
-                    PerfilId = table.Column<int>(type: "int", nullable: false)
+                    LogId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Tipo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Descricao = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Permissoes = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    DataHoraEvento = table.Column<DateTimeOffset>(type: "datetime(6)", nullable: false),
+                    Entidade = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TuplaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Perfis", x => x.PerfilId);
+                    table.PrimaryKey("PK_Logs", x => x.LogId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -73,8 +81,7 @@ namespace ResTIConnect.Infrastructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Telefone = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    EnderecoId = table.Column<int>(type: "int", nullable: false),
-                    PerfisPerfilId = table.Column<int>(type: "int", nullable: true)
+                    EnderecoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,36 +92,59 @@ namespace ResTIConnect.Infrastructure.Migrations
                         principalTable: "Enderecos",
                         principalColumn: "EnderecoId",
                         onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Perfis",
+                columns: table => new
+                {
+                    PerfilId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Descricao = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Permissoes = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Perfis", x => x.PerfilId);
                     table.ForeignKey(
-                        name: "FK_Users_Perfis_PerfisPerfilId",
-                        column: x => x.PerfisPerfilId,
-                        principalTable: "Perfis",
-                        principalColumn: "PerfilId");
+                        name: "FK_Perfis_Users_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Users",
+                        principalColumn: "UsuarioId",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_EnderecoId",
-                table: "Users",
-                column: "EnderecoId");
+                name: "IX_Perfis_UsuarioId",
+                table: "Perfis",
+                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_PerfisPerfilId",
+                name: "IX_Users_EnderecoId",
                 table: "Users",
-                column: "PerfisPerfilId");
+                column: "EnderecoId",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Logs");
+
+            migrationBuilder.DropTable(
+                name: "Perfis");
+
+            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Enderecos");
-
-            migrationBuilder.DropTable(
-                name: "Perfis");
         }
     }
 }

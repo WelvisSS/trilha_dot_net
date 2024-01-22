@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Test", "ResTIConnect.Test\ResTIConnect.Test.csproj", "{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect_EFCore", "ResTIConnect_EFCore\ResTIConnect_EFCore.csproj", "{2DA755EC-8E29-4029-BDBB-276ED91A7C74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA755EC-8E29-4029-BDBB-276ED91A7C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA755EC-8E29-4029-BDBB-276ED91A7C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA755EC-8E29-4029-BDBB-276ED91A7C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA755EC-8E29-4029-BDBB-276ED91A7C74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
