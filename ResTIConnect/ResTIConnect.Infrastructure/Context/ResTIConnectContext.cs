@@ -8,6 +8,7 @@ public class ResTIConnectContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Perfis> Perfis { get; set; }
     public DbSet<Enderecos> Enderecos { get; set; }
+    public DbSet<Eventos> Eventos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -25,6 +26,7 @@ public class ResTIConnectContext : DbContext
         modelBuilder.Entity<User>().ToTable("Users").HasKey(m => m.UsuarioId);
         modelBuilder.Entity<Perfis>().ToTable("Perfis").HasKey(m => m.PerfilId);
         modelBuilder.Entity<Enderecos>().ToTable("Enderecos").HasKey(m => m.EnderecoId);
+        modelBuilder.Entity<Eventos>().ToTable("Eventos").HasKey(m => m.EventoId);
 
         modelBuilder.Entity<User>()
             .HasOne(a => a.Endereco)
@@ -40,5 +42,6 @@ public class ResTIConnectContext : DbContext
             .HasOne(a => a.User)
             .WithMany(m => m.Perfis)
             .HasForeignKey(a => a.UsuarioId);
+
     }
 }
