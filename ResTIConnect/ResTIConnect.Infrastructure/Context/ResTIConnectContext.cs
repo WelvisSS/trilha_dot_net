@@ -12,7 +12,7 @@ public class ResTIConnectContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connectionString = "server=localhost;user=root;password=432747;database=resticonnect";
+        var connectionString = "server=localhost;user=root;password=root;database=resticonnect";
         var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         optionsBuilder.UseMySql(connectionString, serverVersion);
