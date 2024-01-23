@@ -9,4 +9,6 @@ public class Eventos
     public required string Conteudo { get; set; }
     public required DateTimeOffset DataHoraOcorrencia { get; set; }
 
+    public ICollection<Sistemas>? Sistemas { get; }
+
 }

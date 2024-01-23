@@ -11,8 +11,8 @@ using ResTIConnect.Infrastructure.Context;
 namespace ResTIConnect.Infrastructure.Migrations
 {
     [DbContext(typeof(ResTIConnectContext))]
-    [Migration("20240122151742_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240123011209_Sistemas_Criando_classe_Sistema_CRUD")]
+    partial class Sistemas_Criando_classe_Sistema_CRUD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,6 +21,21 @@ namespace ResTIConnect.Infrastructure.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("EventosSistemas", b =>
+                {
+                    b.Property<int>("EventosEventoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SistemasSistemaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventosEventoId", "SistemasSistemaId");
+
+                    b.HasIndex("SistemasSistemaId");
+
+                    b.ToTable("EventosSistemas");
+                });
 
             modelBuilder.Entity("ResTIConnect.Domain.Entities.Enderecos", b =>
                 {
@@ -62,6 +77,36 @@ namespace ResTIConnect.Infrastructure.Migrations
                     b.HasKey("EnderecoId");
 
                     b.ToTable("Enderecos", (string)null);
+                });
+
+            modelBuilder.Entity("ResTIConnect.Domain.Entities.Eventos", b =>
+                {
+                    b.Property<int>("EventoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Conteudo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTimeOffset>("DataHoraOcorrencia")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("EventoId");
+
+                    b.ToTable("Eventos", (string)null);
                 });
 
             modelBuilder.Entity("ResTIConnect.Domain.Entities.Log", b =>
@@ -117,6 +162,44 @@ namespace ResTIConnect.Infrastructure.Migrations
                     b.ToTable("Perfis", (string)null);
                 });
 
+            modelBuilder.Entity("ResTIConnect.Domain.Entities.Sistemas", b =>
+                {
+                    b.Property<int>("SistemaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset>("DataHoraOcorrencia")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EnderecoEntrada")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EnderecoSaida")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Protocolo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("SistemaId");
+
+                    b.ToTable("Sistemas", (string)null);
+                });
+
             modelBuilder.Entity("ResTIConnect.Domain.Entities.User", b =>
                 {
                     b.Property<int>("UsuarioId")
@@ -154,6 +237,36 @@ namespace ResTIConnect.Infrastructure.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("SistemasUser", b =>
+                {
+                    b.Property<int>("SistemasSistemaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserUsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SistemasSistemaId", "UserUsuarioId");
+
+                    b.HasIndex("UserUsuarioId");
+
+                    b.ToTable("SistemasUser");
+                });
+
+            modelBuilder.Entity("EventosSistemas", b =>
+                {
+                    b.HasOne("ResTIConnect.Domain.Entities.Eventos", null)
+                        .WithMany()
+                        .HasForeignKey("EventosEventoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ResTIConnect.Domain.Entities.Sistemas", null)
+                        .WithMany()
+                        .HasForeignKey("SistemasSistemaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ResTIConnect.Domain.Entities.Perfis", b =>
                 {
                     b.HasOne("ResTIConnect.Domain.Entities.User", "User")
@@ -174,6 +287,21 @@ namespace ResTIConnect.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Endereco");
+                });
+
+            modelBuilder.Entity("SistemasUser", b =>
+                {
+                    b.HasOne("ResTIConnect.Domain.Entities.Sistemas", null)
+                        .WithMany()
+                        .HasForeignKey("SistemasSistemaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ResTIConnect.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserUsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ResTIConnect.Domain.Entities.Enderecos", b =>

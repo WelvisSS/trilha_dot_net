@@ -8,6 +8,7 @@ context.Enderecos.RemoveRange(context.Enderecos);
 context.Users.RemoveRange(context.Users);
 context.Logs.RemoveRange(context.Logs);
 context.Eventos.RemoveRange(context.Eventos);
+context.Sistemas.RemoveRange(context.Sistemas);
 
 context.SaveChanges();
 
@@ -139,6 +140,7 @@ var evento01 = new Eventos{
     Conteudo = "Festa de fomatura",
     DataHoraOcorrencia = DateTimeOffset.Parse("30/01/2024 19:00"),
 };
+context.Eventos.Add(evento01);
 
 var evento02 = new Eventos{
     Tipo = "Reuniao",
@@ -147,6 +149,33 @@ var evento02 = new Eventos{
     Conteudo = "Definir metas e dividir atividades",
     DataHoraOcorrencia = DateTimeOffset.Parse("25/01/2024 09:00"),
 };
+context.Eventos.Add(evento02);
 
 context.SaveChanges();
 
+Console.WriteLine($"Criar um sistema no banco de dados");
+
+var sistema01 = new Sistemas{
+    Descricao = "ResTIConnect",
+    Tipo = "Aplicação",
+    EnderecoEntrada = "Rua das Laranjeiras",
+    EnderecoSaida = "Avenida das Palmeiras",
+    Protocolo = "123456",
+    DataHoraOcorrencia = DateTimeOffset.Parse("21/01/2024 15:00"),
+    Status = "Entregue",
+
+};
+context.Sistemas.Add(sistema01);
+
+var sistema02 = new Sistemas{
+    Descricao = "Entrega de Documentos",
+    Tipo = "Encomenda",
+    EnderecoEntrada = "Rua 2 de maio",
+    EnderecoSaida = "Praça dos Bandeirantes",
+    Protocolo = "654321",
+    DataHoraOcorrencia = DateTimeOffset.Parse("26/01/2024 10:00"),
+    Status = "Aberto",
+};
+context.Sistemas.Add(sistema02);
+
+context.SaveChanges();
