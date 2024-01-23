@@ -53,7 +53,7 @@ public class ResTIConnectContext : DbContext
         modelBuilder.Entity<Sistemas>()
             .HasMany(a => a.Descricao)
             .WithOne(m => m.Tipo)
-            .HasForeignKey(a => a.EventoIdId);
+            .HasForeignKey(a => a.EventoId);
 
     }
 }
