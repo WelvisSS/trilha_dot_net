@@ -31,50 +31,50 @@ public class BarberAppContext : DbContext
         modelBuilder.Entity<Client>().ToTable("Clients").HasKey(m => m.ClientId);
         modelBuilder.Entity<Person>().ToTable("Persons").HasKey(p => p.PersonId);
         modelBuilder.Entity<Employee>().ToTable("Employeess").HasKey(a => a.EmployeeId);
-        modelBuilder.Entity<LegalPerson>().ToTable("LegalPersons").HasKey(a => a.LegalPersonId);
-        modelBuilder.Entity<PhysicalPerson>().ToTable("PhysicalPersonss").HasKey(a => a.PhysicalPersonId);
+        modelBuilder.Entity<LegalPerson>().ToTable("LegalPersons").HasKey(a => a.PersonId);
+        modelBuilder.Entity<PhysicalPerson>().ToTable("PhysicalPersonss").HasKey(a => a.PersonId);
         modelBuilder.Entity<Request>().ToTable("Requests").HasKey(a => a.RequestId);
         modelBuilder.Entity<Service>().ToTable("Services").HasKey(a => a.ServiceId);
         modelBuilder.Entity<Estimate>().ToTable("Estimates").HasKey(a => a.EstimateId);
 
-        modelBuilder.Entity<LegalPerson>()
-            .HasOne(a => a.Person)
-            .WithOne(p => p.LegalPerson)
-            .HasForeignKey<Person>(a => a.PersonId);
+        // modelBuilder.Entity<LegalPerson>()
+        //     .HasOne(a => a.Person)
+        //     .WithOne(p => p.LegalPerson)
+        //     .HasForeignKey<Person>(a => a.PersonId);
 
-        modelBuilder.Entity<PhysicalPerson>()
-            .HasOne(a => a.Person)
-            .WithOne(p => p.PhysicalPerson)
-            .HasForeignKey<Person>(a => a.PersonId);
+        // modelBuilder.Entity<PhysicalPerson>()
+        //     .HasOne(a => a.Person)
+        //     .WithOne(p => p.PhysicalPerson)
+        //     .HasForeignKey<Person>(a => a.PersonId);
 
-        modelBuilder.Entity<Client>()
-            .HasOne(a => a.Person)
-            .WithOne(p => p.Client)
-            .HasForeignKey<Person>(a => a.PersonId);
+        // modelBuilder.Entity<Client>()
+        //     .HasOne(a => a.Person)
+        //     .WithOne(p => p.Client)
+        //     .HasForeignKey<Person>(a => a.PersonId);
 
-        modelBuilder.Entity<Employee>()
-            .HasOne(a => a.Person)
-            .WithOne(p => p.Employee)
-            .HasForeignKey<Person>(a => a.PersonId);
+        // modelBuilder.Entity<Employee>()
+        //     .HasOne(a => a.Person)
+        //     .WithOne(p => p.Employee)
+        //     .HasForeignKey<Person>(a => a.PersonId);
 
-        modelBuilder.Entity<Request>()
-            .HasOne(a => a.Client)
-            .WithMany(m => m.Requests)
-            .HasForeignKey(a => a.ClientId);
+        // modelBuilder.Entity<Request>()
+        //     .HasOne(a => a.Client)
+        //     .WithMany(m => m.Requests)
+        //     .HasForeignKey(a => a.ClientId);
 
-        modelBuilder.Entity<Service>()
-            .HasOne(a => a.Request)
-            .WithMany(m => m.Services)
-            .HasForeignKey(a => a.RequestId);
+        // modelBuilder.Entity<Service>()
+        //     .HasOne(a => a.Request)
+        //     .WithMany(m => m.Services)
+        //     .HasForeignKey(a => a.RequestId);
 
-        modelBuilder.Entity<Service>()
-            .HasOne(a => a.Employee)
-            .WithMany(m => m.Services)
-            .HasForeignKey(a => a.EmployeeId);
+        // modelBuilder.Entity<Service>()
+        //     .HasOne(a => a.Employee)
+        //     .WithMany(m => m.Services)
+        //     .HasForeignKey(a => a.EmployeeId);
         
-        modelBuilder.Entity<Estimate>()
-            .HasMany(a => a.ServiceList)
-            .WithMany(m => m.EstimateList);
+        // modelBuilder.Entity<Estimate>()
+        //     .HasMany(a => a.ServiceList)
+        //     .WithMany(m => m.EstimateList);
 
     }
 }
