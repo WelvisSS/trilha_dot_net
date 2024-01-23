@@ -13,3 +13,49 @@ Define o tipo de pesso como jurídica, e tem ligação direta com pessoa e somen
 Caracteriza-se como um serviço que está sendo ofertado, tendo ligação direta com solicitação e com funcionário.
 ### Funcionario
 É quem oferta um serviço, tendo ligação direta com serviço e com pessoa por se tratar de um tipo de pessoa.
+
+
+
+# END POINTS
+
+## Client endpoints
+
+```
+/getClients
+/setClient
+/id/deletClient
+/id/getClientById
+```
+## Employee endpoints
+```
+/getEmployees
+/setEmployee
+/id/deletEmployee
+/id/getEmployeeById
+
+```
+## Request endpoints
+```
+/getRequests
+/setRequest
+/id/deletRequest
+/id/getRequestById
+/id/getRequestsByEmployee
+```
+## Service endpoints
+```
+/getServices
+/setService
+/id/deletService
+/id/getServiceById
+/id/getServicesByEmployee
+/id/getServiceTypeByEmployee
+```
+## Estimate endpoint
+```
+/getEstimates
+/setEstimate
+/id/deletEstimate
+/id/getEstimateById
+/id/getEstimateByDate
+```
