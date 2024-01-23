@@ -14,7 +14,7 @@ public class ResTIConnectContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connectionString = "server=localhost;user=root;password=root;database=resticonnect";
+        var connectionString = "server=localhost;user=root;password=0000;database=resticonnect";
         var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         optionsBuilder.UseMySql(connectionString, serverVersion);
@@ -35,25 +35,17 @@ public class ResTIConnectContext : DbContext
             .WithOne(x => x.User)
             .HasForeignKey<User>(a => a.EnderecoId);
 
-        // modelBuilder.Entity<Enderecos>()
-        //     .HasOne(a => a.User)
-        //     .WithOne(p => p.Endereco)
-        //     .HasForeignKey<User>(a => a.UsuarioId);
-
         modelBuilder.Entity<Perfis>()
             .HasOne(a => a.User)
             .WithMany(m => m.Perfis)
             .HasForeignKey(a => a.UsuarioId);
         
-        modelBuilder.Entity<Eventos>()
-            .HasMany(a => a.Descricao)
-            .WithMany(m => m.Tipo)
-            .HasForeignKey(a => a.SistemaId);
+        modelBuilder.Entity<User>()
+            .HasMany(a => a.Sistemas)
+            .WithMany(m => m.User);
         
         modelBuilder.Entity<Sistemas>()
-            .HasMany(a => a.Descricao)
-            .WithOne(m => m.Tipo)
-            .HasForeignKey(a => a.EventoId);
-
+            .HasMany(a => a.Eventos)
+            .WithMany(m => m.Sistemas);
     }
 }
