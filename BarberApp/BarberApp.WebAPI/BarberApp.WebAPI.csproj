@@ -12,4 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BaberApp.Persistence\BaberApp.Persistence.csproj" />
+    <ProjectReference Include="..\BarberApp.Domain\BarberApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
