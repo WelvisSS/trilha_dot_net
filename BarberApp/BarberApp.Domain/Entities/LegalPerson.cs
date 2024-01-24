@@ -1,7 +1,5 @@
 namespace BarberApp.Domain.Entities;
-public class LegalPerson
+public class LegalPerson : Person
 {
-    public required int LegalPersonId { get; set; }
-    public required Person Person { get; set; }
     public required string CNPJ { get; set; }
 }
