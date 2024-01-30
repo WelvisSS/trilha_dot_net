@@ -1,5 +1,6 @@
 namespace SuitsApp.Domain.Entities;
 public class Lawyer : Person
 {
-    public string? CNA { get; set; }
+    public int LawyerId { get; set; }
+    // public string? CNA { get; set; }
 }

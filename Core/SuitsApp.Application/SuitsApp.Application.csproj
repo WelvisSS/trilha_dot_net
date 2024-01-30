@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Pesistence\SuitsApp.Infra\SuitsApp.Infra.csproj" />
+  </ItemGroup>
+
 </Project>
