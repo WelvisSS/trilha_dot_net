@@ -9,5 +9,10 @@ public class Atendimento : BaseEntity
     public string? SuspeitaInicial { get; set; }
     public string? Diagnostico { get; set; }
     public int MedicoId { get; set; }
+
+    public required Medico Medico { get; set; }
+    public required Paciente Paciente { get; set; }
     public int PacienteId { get; set; }
+
+    public ICollection<Exame>? Exames { get; set; }
 }
