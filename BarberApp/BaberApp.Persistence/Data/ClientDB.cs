@@ -12,7 +12,7 @@ public class ClientDB : IClientCollection
         if (_clients.Count > 0)
             _id = _clients.Max(m => m.ClientId);
         client.ClientId = ++_id;
-        client.PersonId = ++_id;
+        // client.PersonId = ++_id;
         LegalPerson legalPerson = new LegalPerson
         {
             PersonId = client.PersonId,
