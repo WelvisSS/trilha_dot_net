@@ -1,17 +1,14 @@
 namespace BarberApp.Domain.Entities;
 public class Service
 {
-    public required int ServiceId { get; set; }
-    public required int RequestId { get; set; }
-    public required int EmployeeId { get; set; }
-    public required string ServieType { get; set; }
-    public required double Amount { get; set; }
-    public required int Quantity { get; set; }
-    public required DateTime Date { get; set; }
-
-    public required Request Request {get; set;}
-
-    public required Employee Employee {get; set;}
-
-    public required ICollection<Estimate> EstimateList {get; set;}
+    public int ServiceId { get; set; }
+    public int RequestId { get; set; }
+    public int EmployeeId { get; set; }
+    public string? ServiceType { get; set; }
+    public double Amount { get; set; }
+    public int Quantity { get; set; }
+    public DateTime Date { get; set; }
+    public Request? Request { get; set; }
+    public Employee? Employee { get; set; }
+    // public ICollection<Estimate>? EstimateList {get; set;}
 }
