@@ -6,4 +6,5 @@ public interface IDatabaseFake
     public IEmployeeCollection EmployeesCollection { get; }
     public IClientCollection ClientsCollection { get; }
     public IServiceCollection ServicesCollection { get; }
+    public IEstimateCollection EstimateCollection { get; }
 }
