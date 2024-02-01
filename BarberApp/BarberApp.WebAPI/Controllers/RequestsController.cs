@@ -8,7 +8,7 @@ namespace BarberApp.WebAPI.Controllers;
 public class RequestsController : ControllerBase
 {
     private readonly IRequestCollection _requests;
-    public List<Request> Request => _requests.GetAll().ToList();
+    public List<Request> Requests => _requests.GetAll().ToList();
     public RequestsController(IDatabaseFake dbFake) => _requests = dbFake.RequestsCollection;
 
     [HttpGet("requests")]
