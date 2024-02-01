@@ -7,6 +7,7 @@ public class DatabaseFake : IDatabaseFake
     public IClientCollection ClientsCollection { get; } = new ClientDB();
 
     public IServiceCollection ServicesCollection { get; } = new ServicesDB();
+    public IEstimateCollection EstimateCollection { get; } = new EstimateDB();
 
 }
 
