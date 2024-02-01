@@ -2,7 +2,7 @@
 
 namespace BarberApp.Domain.Interfaces;
 
-public interface IEmployeeCollection : IBaseCollection<Employee>
+public interface IClientCollection : IBaseCollection<Client>
 {
 
 }
