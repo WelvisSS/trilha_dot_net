@@ -7,5 +7,5 @@ public class PacienteViewModel
     public int PacienteId {get; set;}
     public string? Nome { get; set; }
     public DateTime DataNascimento { get; set; }
-    // public ICollection<Atendimento>? Atendimentos {get; set;}
+    public ICollection<AtendimentoViewModel>? Atendimentos {get; set;}
 }

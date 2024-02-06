@@ -1,6 +1,6 @@
 ﻿using TechMed.Infrastructure.Persistence;
 
-namespace TechMed.Application;
+namespace TechMed.Application.Services;
 
 public abstract class BaseService
 {

@@ -1,11 +1,11 @@
 ﻿using TechMed.Application.InputModels;
-using TechMed.Application.Interfaces;
+using TechMed.Application.Services.Interfaces;
 using TechMed.Application.ViewModels;
 using TechMed.Domain.Entities;
 using TechMed.Domain.Exceptions;
 using TechMed.Infrastructure.Persistence;
 
-namespace TechMed.Application;
+namespace TechMed.Application.Services;
 
 public class PacienteService : IPacienteService
 {
