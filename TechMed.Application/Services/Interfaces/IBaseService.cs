@@ -1,4 +1,4 @@
-﻿namespace TechMed.Application;
+﻿namespace TechMed.Application.Interfaces;
 
 public interface IBaseService <TViewModel, TInputModel>
 where TViewModel : class

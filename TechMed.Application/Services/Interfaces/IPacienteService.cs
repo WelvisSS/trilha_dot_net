@@ -1,7 +1,7 @@
 ﻿using TechMed.Application.InputModels;
 using TechMed.Application.ViewModels;
 
-namespace TechMed.Application;
+namespace TechMed.Application.Interfaces;
 
 public interface IPacienteService
 {
