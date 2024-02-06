@@ -1,4 +1,7 @@
-﻿namespace TechMed.Application.Interfaces;
+﻿using TechMed.Application.InputModels;
+using TechMed.Application.ViewModels;
+
+namespace TechMed.Application.Interfaces;
 
 public interface IMedicoService
 {

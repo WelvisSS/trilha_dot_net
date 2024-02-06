@@ -1,4 +1,4 @@
-﻿namespace TechMed.Application;
+﻿namespace TechMed.Application.ViewModels;
 
 public class MedicoViewModel
 {

@@ -1,4 +1,6 @@
-﻿using TechMed.Application.Interfaces;
+﻿using TechMed.Application.InputModels;
+using TechMed.Application.Interfaces;
+using TechMed.Application.ViewModels;
 using TechMed.Domain.Entities;
 using TechMed.Domain.Exceptions;
 using TechMed.Infrastructure.Persistence;

@@ -1,4 +1,4 @@
-﻿namespace TechMed.Application;
+﻿namespace TechMed.Application.InputModels;
 
 public class NewMedicoInputModel
 {
