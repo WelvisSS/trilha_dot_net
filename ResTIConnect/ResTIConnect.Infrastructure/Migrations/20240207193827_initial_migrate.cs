@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -7,30 +6,29 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ResTIConnect.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Events_entity_creat_Migration_CRUD : Migration
+    public partial class initial_migrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.CreateTable(
-                name: "Eventos",
+                name: "Perfis",
                 columns: table => new
                 {
-                    EventoId = table.Column<int>(type: "int", nullable: false)
+                    PerfilId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Tipo = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Descricao = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Codigo = table.Column<string>(type: "longtext", nullable: false)
+                    Permissoes = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Conteudo = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataHoraOcorrencia = table.Column<DateTimeOffset>(type: "datetime(6)", nullable: false)
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Eventos", x => x.EventoId);
+                    table.PrimaryKey("PK_Perfis", x => x.PerfilId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }
@@ -39,7 +37,7 @@ namespace ResTIConnect.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Eventos");
+                name: "Perfis");
         }
     }
 }

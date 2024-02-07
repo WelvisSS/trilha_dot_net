@@ -16,8 +16,8 @@ public class User : BaseEntity
 
     public required string Telefone { get; set; }
 
-    public int EnderecoId {get; set; }
+    public int EnderecoId { get; set; }
     public required Enderecos Endereco { get; set; }
-    public ICollection<Perfis>? Perfis { get; }
+    public ICollection<Perfil>? Perfis { get; }
     public ICollection<Sistemas>? Sistemas { get; }
 }
