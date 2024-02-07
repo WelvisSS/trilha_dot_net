@@ -29,5 +29,18 @@ public class MedicoControllers : ControllerBase
  
    }
 
+   [HttpPut("medicos")]
+   public IActionResult Put([FromBody] MedicoViewModel medico)
+   {
+      _medicoService.Update(medico);
+      return Ok(medico);
+      
+   }
 
+   [HttpDelete("medicos")]
+   public IActionResult Delete([FromBody] MedicoViewModel medico)
+   {
+      _medicoService.Delete(medico.MedicoId);
+      return Ok(medico);
+   }
 }

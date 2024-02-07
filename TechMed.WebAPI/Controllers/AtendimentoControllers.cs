@@ -29,5 +29,19 @@ public class AtendimentoControllers : ControllerBase
  
    }
 
+   [HttpPut("atendimento")]
+   public IActionResult Put([FromBody] AtendimentoViewModel atendimento)
+   {
+      _atendimentoService.Update(atendimento);
+      return Ok(atendimento);
+      
+   }
+
+   [HttpDelete]
+   public IActionResult Delete([FromBody] AtendimentoViewModel atendimento)
+   {
+      _atendimentoService.Delete(atendimento.AtendimentoId);
+      return Ok(atendimento);
+   }
 
 }
