@@ -14,7 +14,7 @@ public class ResTIConnectContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connectionString = "server=localhost;user=root;password=0000;database=resticonnect";
+        var connectionString = "server=localhost;user=root;password=root;database=resticonnect";
         var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         optionsBuilder.UseMySql(connectionString, serverVersion);
@@ -39,11 +39,11 @@ public class ResTIConnectContext : DbContext
             .HasOne(a => a.User)
             .WithMany(m => m.Perfis)
             .HasForeignKey(a => a.UsuarioId);
-        
+
         modelBuilder.Entity<User>()
             .HasMany(a => a.Sistemas)
             .WithMany(m => m.User);
-        
+
         modelBuilder.Entity<Sistemas>()
             .HasMany(a => a.Eventos)
             .WithMany(m => m.Sistemas);
