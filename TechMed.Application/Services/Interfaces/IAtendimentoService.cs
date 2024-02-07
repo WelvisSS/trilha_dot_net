@@ -11,6 +11,5 @@ public interface IAtendimentoService
    public List<AtendimentoViewModel> GetByMedicoId(int medicoId);
    public int Create(NewAtendimentoInputModel atendimento);
     void Update(AtendimentoViewModel atendimento);
-    void Delete(AtendimentoViewModel atendimento);
     void Delete(int atendimentoId);
 }

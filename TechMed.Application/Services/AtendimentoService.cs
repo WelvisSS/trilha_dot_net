@@ -24,11 +24,6 @@ public class AtendimentoService : IAtendimentoService
         return _medicoService.CreateAtendimento(atendimento.MedicoId, atendimento);
     }
 
-    public void Delete(AtendimentoViewModel atendimento)
-    {
-        throw new NotImplementedException();
-    }
-
     public void Delete(int atendimentoId)
     {
         throw new NotImplementedException();
@@ -82,12 +77,14 @@ public class AtendimentoService : IAtendimentoService
 
     public List<AtendimentoViewModel> GetByMedicoId(int medicoId)
     {
-        return [.. _medicoService.GetById(medicoId)!.Atendimentos!];
+        // return [.. _medicoService.GetById(medicoId)!.Atendimentos!];
+        throw new NotImplementedException();
     }
 
     public List<AtendimentoViewModel> GetByPacienteId(int pacienteId)
     {
-        return [.. _pacienteService.GetById(pacienteId)!.Atendimentos!];
+        // return [.. _pacienteService.GetById(pacienteId)!.Atendimentos!];
+        throw new NotImplementedException();
     }
 
     public void Update(AtendimentoViewModel atendimento)

@@ -29,5 +29,21 @@ public class ExameControllers : ControllerBase
  
    }
 
+   [HttpPut]
+   public IActionResult Put(int id, [FromBody] NewExameInputModel exame)
+   {
+      if (_exameService.GetById(id) == null)
+         return NoContent();
+      _exameService.Update(id, exame);
+      return Ok(_exameService.GetById(id)); 
+   }
+
+   [HttpDelete]
+   public IActionResult Delete([FromBody] ExameViewModel exame)
+   {
+      _exameService.Delete(exame.ExameId);
+      return Ok(exame);
+   }
+
 
 }

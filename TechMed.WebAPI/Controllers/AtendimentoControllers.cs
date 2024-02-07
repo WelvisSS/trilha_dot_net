@@ -29,12 +29,13 @@ public class AtendimentoControllers : ControllerBase
  
    }
 
-   [HttpPut("atendimento")]
-   public IActionResult Put([FromBody] AtendimentoViewModel atendimento)
+   [HttpPut]
+   public IActionResult Put(int id, [FromBody] NewAtendimentoInputModel atendimento)
    {
-      _atendimentoService.Update(atendimento);
-      return Ok(atendimento);
-      
+      if (_atendimentoService.GetById(id) == null)
+         return NoContent();
+      _atendimentoService.Update(id, atendimento);
+      return Ok(_atendimentoService.GetById(id)); 
    }
 
    [HttpDelete]
