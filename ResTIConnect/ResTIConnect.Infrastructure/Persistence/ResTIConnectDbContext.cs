@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ResTIConnect.Domain.Entities;
-namespace ResTIConnect.Infrastructure;
+namespace ResTIConnect.Infrastructure.Persistence;
 
 public class ResTIConnectDbContext : DbContext
 {
-    public DbSet<Perfis> Perfis { get; set; }
+    public DbSet<Perfil> Perfis { get; set; }
     public ResTIConnectDbContext(DbContextOptions<ResTIConnectDbContext> options) : base(options)
     {
-        //Database.EnsureCreated();
+
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

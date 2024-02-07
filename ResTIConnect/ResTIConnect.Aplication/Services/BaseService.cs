@@ -1,11 +1,10 @@
-﻿using ResTIConnect.Infrastructure;
-
+﻿using ResTIConnect.Infrastructure.Persistence;
 namespace ResTIConnect.Aplication;
 
 public abstract class BaseService
 {
-    protected readonly IResTIConnectContext _context;
-    protected BaseService(IResTIConnectContext context)
+    protected readonly ResTIConnectDbContext _context;
+    protected BaseService(ResTIConnectDbContext context)
     {
         _context = context;
     }

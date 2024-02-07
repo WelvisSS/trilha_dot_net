@@ -4,19 +4,19 @@ using ResTIConnect.Aplication.Services.Interfaces;
 using ResTIConnect.Aplication.ViewModels;
 using ResTIConnect.Domain;
 using ResTIConnect.Domain.Entities;
-using ResTIConnect.Infrastructure;
+using ResTIConnect.Infrastructure.Persistence;
 
-namespace ResTIConnect.Aplication;
+namespace ResTIConnect.Aplication.Services;
 
-public class PacienteService : IPerfilService
+public class PerfilService : IPerfilService
 {
     private readonly ResTIConnectDbContext _context;
-    public PacienteService(ResTIConnectDbContext context)
+    public PerfilService(ResTIConnectDbContext context)
     {
         _context = context;
     }
 
-    private Perfis GetByDbId(int id)
+    private Perfil GetByDbId(int id)
     {
         var _perfil = _context.Perfis.Find(id);
 
@@ -28,7 +28,7 @@ public class PacienteService : IPerfilService
 
     public int Create(NewPerfilInputModel perfil)
     {
-        var _perfil = new Perfis
+        var _perfil = new Perfil
         {
             Descricao = perfil.Descricao,
             Permissoes = perfil.Permissoes
