@@ -9,6 +9,6 @@ public class Perfil
     public required string Permissoes { get; set; }
 
     public int UsuarioId { get; set; }
-    public User? User { get; set; }
+    // public User? User { get; set; }
     // public ICollection<User>? Users { get; set; }
 }
