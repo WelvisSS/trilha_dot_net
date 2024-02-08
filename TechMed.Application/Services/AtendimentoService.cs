@@ -1,7 +1,6 @@
 ﻿using TechMed.Application.InputModels;
 using TechMed.Application.Services.Interfaces;
 using TechMed.Application.ViewModels;
-using TechMed.Domain.Entities;
 using TechMed.Domain.Exceptions;
 using TechMed.Infrastructure.Persistence;
 
@@ -72,11 +71,11 @@ public class AtendimentoService : IAtendimentoService
 
     public List<AtendimentoViewModel> GetByMedicoId(int medicoId)
     {
-        return [.. _medicoService.GetById(medicoId)!.Atendimentos!];
+        throw new NotImplementedException();
     }
 
     public List<AtendimentoViewModel> GetByPacienteId(int pacienteId)
     {
-        return [.. _pacienteService.GetById(pacienteId)!.Atendimentos!];
+         throw new NotImplementedException();
     }
 }
