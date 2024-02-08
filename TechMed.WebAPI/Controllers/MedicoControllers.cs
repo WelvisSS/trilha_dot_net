@@ -30,17 +30,17 @@ public class MedicoControllers : ControllerBase
    }
 
    [HttpPut("medicos")]
-   public IActionResult Put([FromBody] MedicoViewModel medico)
+   public IActionResult Put(int id, [FromBody] NewMedicoInputModel medico)
    {
-      _medicoService.Update(medico);
+      _medicoService.Update(id, medico);
       return Ok(medico);
       
    }
 
    [HttpDelete("medicos")]
-   public IActionResult Delete([FromBody] MedicoViewModel medico)
+   public IActionResult Delete(int id)
    {
-      _medicoService.Delete(medico.MedicoId);
-      return Ok(medico);
+      _medicoService.Delete(id);
+      return Ok();
    }
 }

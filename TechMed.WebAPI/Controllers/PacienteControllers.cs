@@ -29,5 +29,20 @@ public class PacienteControllers : ControllerBase
  
    }
 
+   [HttpPut("pacientes")]
+   public IActionResult Put(int id, [FromBody] NewPacienteInputModel paciente)
+   {
+      _pacienteService.Update(id, paciente);
+      return Ok(paciente);
+      
+   }
+
+   [HttpDelete("pacientes")]
+   public IActionResult Delete(int id)
+   {
+      _pacienteService.Delete(id);
+      return Ok();
+   }
+
 
 }

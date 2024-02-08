@@ -34,7 +34,7 @@ public class AtendimentoControllers : ControllerBase
    {
       if (_atendimentoService.GetById(id) == null)
          return NoContent();
-      _atendimentoService.Update(id, atendimento);
+      _atendimentoService.Update(id,atendimento);
       return Ok(_atendimentoService.GetById(id)); 
    }
 

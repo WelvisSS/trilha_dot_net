@@ -87,7 +87,7 @@ public class AtendimentoService : IAtendimentoService
         throw new NotImplementedException();
     }
 
-    public void Update(AtendimentoViewModel atendimento)
+    public void Update(int id,NewAtendimentoInputModel atendimento)
     {
         throw new NotImplementedException();
     }
