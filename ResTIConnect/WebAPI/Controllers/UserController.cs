@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using ResTIConnect.Aplication.InputModels;
 using ResTIConnect.Aplication.Services.Interfaces;
 using ResTIConnect.Aplication.ViewModels;
+using ResTIConnect.Aplication;
+
 
 namespace ResTIConnect.WebAPI.Controllers;
 

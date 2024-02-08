@@ -1,4 +1,5 @@
 
+using System.Data.Common;
 using ResTIConnect.Aplication.InputModels;
 using ResTIConnect.Aplication.Services.Interfaces;
 using ResTIConnect.Aplication.ViewModels;
@@ -16,7 +17,7 @@ public class UserService : IUserService
         _context = context;
     }
 
-    private Perfil GetByDbId(int id)
+    private User GetByDbId(int id)
     {
         var _user = _context.Users.Find(id);
 
@@ -30,14 +31,19 @@ public class UserService : IUserService
     {
         var _user = new User
         {
-            // Descricao = perfil.Descricao,
-            // Permissoes = perfil.Permissoes
+            Nome = user.Name,
+            UsuarioId = user.UserId,
+            Apelido = user.Nick,
+            Email = user.Email,
+            Senha = user.Password,
+            Telefone = user.Phone,
+        
         };
         _context.Users.Add(_user);
 
         _context.SaveChanges();
 
-        return _user.UserId;
+        return _user.UsuarioId;
     }
 
     public void Delete(int id)
@@ -51,8 +57,11 @@ public class UserService : IUserService
     {
         var _users = _context.Users.Select(m => new UserViewModel
         {
-            // PerfilId = m.PerfilId,
-            // Descricao = m.Descricao
+            UserId = m.UsuarioId,
+            Name = m.Nome,
+            Nick = m.Apelido,
+            Email = m.Email,
+            Phone = m.Telefone
         }).ToList();
 
         return _users;
@@ -64,20 +73,24 @@ public class UserService : IUserService
 
         var UserViewModel = new UserViewModel
         {
-            // PerfilId = _perfil.PerfilId,
-            // Descricao = _perfil.Descricao
+            UserId = _user.UsuarioId,
+            Name = _user.Nome,
+            Nick = _user.Apelido,
+            Email = _user.Email,
+            Phone = _user.Telefone
         };
         return UserViewModel;
     }
 
-    public void Update(int id, NewPerfilInputModel perfil)
+    public void Update(int id, NewUserInputModel user)
     {
-        var _perfil = GetByDbId(id);
+        var _user = GetByDbId(id);
 
-        _perfil.Descricao = perfil.Descricao;
-        _perfil.Permissoes = perfil.Permissoes;
+        _user.Nome = user.Name;
+        _user.Email = user.Email;
+        _user.Telefone = user.Phone;
 
-        _context.Perfis.Update(_perfil);
+        _context.Users.Update(_user);
 
         _context.SaveChanges();
     }

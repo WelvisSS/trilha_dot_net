@@ -1,7 +1,9 @@
+using ResTIConnect.Aplication.InputModels;
+using ResTIConnect.Aplication.ViewModels;
 using ResTIConnect.Infrastructure.Persistence;
 
 namespace ResTIConnect.Aplication;
-public class IUserService
+public interface IUserService
 {
      public List<UserViewModel> GetAll();
     public UserViewModel? GetById(int id);
