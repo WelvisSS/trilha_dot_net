@@ -23,6 +23,11 @@ public class AtendimentoService : IAtendimentoService
         return _medicoService.CreateAtendimento(atendimento.MedicoId, atendimento);
     }
 
+    public void Delete(int atendimentoId)
+    {
+        throw new NotImplementedException();
+    }
+
     public List<AtendimentoViewModel> GetAll()
     {
         return _context.Atendimentos.Select(a => new AtendimentoViewModel
@@ -71,11 +76,19 @@ public class AtendimentoService : IAtendimentoService
 
     public List<AtendimentoViewModel> GetByMedicoId(int medicoId)
     {
+
         throw new NotImplementedException();
     }
 
     public List<AtendimentoViewModel> GetByPacienteId(int pacienteId)
     {
-         throw new NotImplementedException();
+
+        throw new NotImplementedException();
+    }
+
+    public void Update(int id,NewAtendimentoInputModel atendimento)
+    {
+        throw new NotImplementedException();
+
     }
 }

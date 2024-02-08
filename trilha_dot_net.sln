@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infrastructure", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Application", "TechMed.Application\TechMed.Application.csproj", "{4C2EBB58-F662-49C0-92B4-CC22ADD13CC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.WebAPI", "TechMed.WebAPI\TechMed.WebAPI.csproj", "{046F85EE-CA8D-4E87-B035-01CFE363CFF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4C2EBB58-F662-49C0-92B4-CC22ADD13CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C2EBB58-F662-49C0-92B4-CC22ADD13CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C2EBB58-F662-49C0-92B4-CC22ADD13CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{046F85EE-CA8D-4E87-B035-01CFE363CFF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046F85EE-CA8D-4E87-B035-01CFE363CFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046F85EE-CA8D-4E87-B035-01CFE363CFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046F85EE-CA8D-4E87-B035-01CFE363CFF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
