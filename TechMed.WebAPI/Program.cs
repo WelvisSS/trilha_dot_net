@@ -7,7 +7,6 @@ using TechMed.Infrastructure.Persistence.Configurations;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<TechMedDbContext, TechMedDbContext>();
 builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
 builder.Services.AddScoped<IMedicoService, MedicoService>();
 builder.Services.AddScoped<IPacienteService, PacienteService>();
