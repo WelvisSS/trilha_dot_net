@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddSingleton<IResTIConnectContext, ResTIConnectContext>();
 builder.Services.AddScoped<IPerfilService, PerfilService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IEnderecoService, EnderecoService>();
 
 
 builder.Services.AddDbContext<ResTIConnectDbContext>(options =>
