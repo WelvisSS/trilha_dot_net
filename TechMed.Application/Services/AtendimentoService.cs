@@ -1,6 +1,7 @@
 ﻿using TechMed.Application.InputModels;
 using TechMed.Application.Services.Interfaces;
 using TechMed.Application.ViewModels;
+using TechMed.Domain.Entities;
 using TechMed.Domain.Exceptions;
 using TechMed.Infrastructure.Persistence;
 
@@ -31,6 +32,75 @@ public class AtendimentoService : IAtendimentoService
     public List<AtendimentoViewModel> GetAll()
     {
         return _context.Atendimentos.Select(a => new AtendimentoViewModel
+        {
+            AtendimentoId = a.AtendimentoId,
+            DataHoraInicio = a.DataHoraInicio,
+            DataHoraFim = a.DataHoraFim,
+            SuspeitaInicial = a.SuspeitaInicial,
+            Diagnostico = a.Diagnostico,
+            Medico = new MedicoViewModel
+            {
+                MedicoId = a.Medico.MedicoId,
+                Nome = a.Medico.Nome
+            },
+            Paciente = new PacienteViewModel
+            {
+                PacienteId = a.Paciente.PacienteId,
+                Nome = a.Paciente.Nome
+            }
+        }).ToList();
+    }
+
+    public List<AtendimentoViewModel> GetConsultationsAndExamsByDoctorId(int doctorId)
+    {
+        var atendimentos = _context.Atendimentos.Where(a => a.Medico.MedicoId == doctorId);
+        return atendimentos.Select(a => new AtendimentoViewModel
+        {
+            AtendimentoId = a.AtendimentoId,
+            DataHoraInicio = a.DataHoraInicio,
+            DataHoraFim = a.DataHoraFim,
+            SuspeitaInicial = a.SuspeitaInicial,
+            Diagnostico = a.Diagnostico,
+            Medico = new MedicoViewModel
+            {
+                MedicoId = a.Medico.MedicoId,
+                Nome = a.Medico.Nome
+            },
+            Paciente = new PacienteViewModel
+            {
+                PacienteId = a.Paciente.PacienteId,
+                Nome = a.Paciente.Nome
+            }
+        }).ToList();
+    }
+
+    public List<AtendimentoViewModel> GetConsultationsAndExamsByPatientId(int patientId)
+    {
+        var atendimentos = _context.Atendimentos.Where(a => a.Paciente.PacienteId == patientId);
+        return atendimentos.Select(a => new AtendimentoViewModel
+        {
+            AtendimentoId = a.AtendimentoId,
+            DataHoraInicio = a.DataHoraInicio,
+            DataHoraFim = a.DataHoraFim,
+            SuspeitaInicial = a.SuspeitaInicial,
+            Diagnostico = a.Diagnostico,
+            Medico = new MedicoViewModel
+            {
+                MedicoId = a.Medico.MedicoId,
+                Nome = a.Medico.Nome
+            },
+            Paciente = new PacienteViewModel
+            {
+                PacienteId = a.Paciente.PacienteId,
+                Nome = a.Paciente.Nome
+            }
+        }).ToList();
+    }
+
+    public List<AtendimentoViewModel> GetConsultationsAndExamsByDates(string inicio, string fim)
+    {
+        var atendimentos = _context.Atendimentos.Where(a => a.DataHoraInicio >= DateTime.Parse(inicio) && a.DataHoraFim <= DateTime.Parse(fim));
+        return atendimentos.Select(a => new AtendimentoViewModel
         {
             AtendimentoId = a.AtendimentoId,
             DataHoraInicio = a.DataHoraInicio,
@@ -86,7 +156,7 @@ public class AtendimentoService : IAtendimentoService
         throw new NotImplementedException();
     }
 
-    public void Update(int id,NewAtendimentoInputModel atendimento)
+    public void Update(int id, NewAtendimentoInputModel atendimento)
     {
         throw new NotImplementedException();
 
