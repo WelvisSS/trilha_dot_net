@@ -1,10 +1,10 @@
 ﻿using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.InputModels;
-using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.ViewModels;
 using BarberApp.Domain.Entities;
 using BarberApp.Domain.Exceptions;
 using BarberApp.Infrastructure.Persistence;
+using static BarberApp.Domain.Exceptions.RequestException;
 
 namespace BarberApp.Application.Services;
 
@@ -16,63 +16,82 @@ public class RequestService : IRequestService
     {
         _context = context;
     }
-    // public Paciente GetByDbId(int id)
-    // {
-    //     var _paciente = _context.Pacientes.Find(id);
-    //     if (_paciente == null) throw new PacienteNotFoundException();
-    //     return _paciente;
-    // }
-    // public int Create(NewPacienteInputModel paciente)
-    // {
-    //     var _paciente = new Paciente
-    //     {
-    //         Nome = paciente.Nome,
-    //         Cpf = paciente.Cpf,
-    //         DataNascimento = paciente.DataNascimento,
-    //     };
-    //     _context.Pacientes.Add(_paciente);
-    //     _context.SaveChanges();
-    //     return _paciente.PacienteId;
-    // }
+    public Request GetByDbId(int id)
+    {
+        var _request = _context.Requests.Find(id);
+        if (_request == null) throw new RequestNotFoundException();
+        return _request;
+    }
+    public int Create(NewRequestInputModel request)
+    {
+        var _request = new Request
+        {
+            RequestId = request.RequestId,
+            ClientId = request.ClientId,
+            Date = request.Date,
+            RequiredAmount = request.RequiredAmount
+        };
 
-    // public void Delete(int id)
-    // {
-    //     _context.Pacientes.Remove(GetByDbId(id));
-    //     _context.SaveChanges();
-    // }
+        _context.Requests.Add(_request);
+        _context.SaveChanges();
+        return _request.RequestId;
+    }
 
-    // public List<PacienteViewModel> GetAll()
-    // {
-    //     var _pacientes = _context.Pacientes.Select(m => new PacienteViewModel
-    //     {
-    //         PacienteId = m.PacienteId,
-    //         Nome = m.Nome,
-    //         DataNascimento = m.DataNascimento,
-    //     }).ToList();
+    public void Delete(int id)
+    {
+        _context.Requests.Remove(GetByDbId(id));
+        _context.SaveChanges();
+    }
 
-    //     return _pacientes;
-    // }
+    public List<RequestViewModel> GetAll()
+    {
+        var _pacientes = _context.Requests.Select(m => new RequestViewModel
+        {
+            RequestId = m.RequestId,
+            ClientId = m.ClientId,
+            Date = m.Date,
+            RequiredAmount = m.RequiredAmount
 
-    // public PacienteViewModel? GetById(int id)
-    // {
-    //     var _paciente = GetByDbId(id);
 
-    //     var PacienteViewModel = new PacienteViewModel
-    //     {
-    //         PacienteId = _paciente.PacienteId,
-    //         Nome = _paciente.Nome
-    //     };
-    //     return PacienteViewModel;
-    // }
+            // ServiceId = m.ServiceId,
+            // RequestId = m.RequestId,
+            // EmployeeId = m.EmployeeId,
+            // ServieType = m.ServieType,
+            // Amount = m.Amount,
+            // Quantity = m.Quantity,
+            // Date = m.Date
 
-    // public void Update(int id, NewPacienteInputModel paciente)
-    // {
-    //     var _paciente = GetByDbId(id);
 
-    //     _paciente.Nome = paciente.Nome;
+        }).ToList();
 
-    //     _context.Pacientes.Update(_paciente);
+        return _pacientes;
+    }
 
-    //     _context.SaveChanges();
-    // }
+    public RequestViewModel? GetById(int id)
+    {
+        var _paciente = GetByDbId(id);
+
+        var PacienteViewModel = new RequestViewModel
+        {
+            RequestId = _paciente.RequestId,
+            ClientId = _paciente.ClientId,
+            Date = _paciente.Date,
+            RequiredAmount = _paciente.RequiredAmount
+        };
+        return PacienteViewModel;
+    }
+
+    public void Update(int id, NewRequestInputModel paciente)
+    {
+        var _request = GetByDbId(id);
+
+        _request.RequestId = paciente.RequestId;
+        _request.ClientId = paciente.ClientId;
+        _request.Date = paciente.Date;
+        _request.RequiredAmount = paciente.RequiredAmount;
+
+        _context.Requests.Update(_request);
+
+        _context.SaveChanges();
+    }
 }
