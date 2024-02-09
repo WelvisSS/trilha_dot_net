@@ -1,4 +1,6 @@
-﻿namespace BarberApp.Application;
+﻿using BarberApp.Infrastructure.Persistence;
+
+namespace BarberApp.Application.Services;
 
 public abstract class BaseService
 {
