@@ -4,7 +4,7 @@ using ResTIConnect.Domain.Entities;
 
 namespace ResTIConnect.Infrastructure.Persistence.Configuration;
 
-public class EnderecoConfiguration
+public class EnderecoConfiguration : IEntityTypeConfiguration<Enderecos>
 {
     public void Configure(EntityTypeBuilder<Enderecos> builder)
     {
