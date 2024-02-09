@@ -18,31 +18,52 @@ public class AtendimentoControllers : ControllerBase
    public IActionResult Get()
    {
       return Ok(Atendimentos);
-
    }
+
+   [HttpGet("medico/{id}/atendimento")]
+   public List<AtendimentoViewModel> GetConsultationsAndExamsByDoctorId(int id)
+   {
+      var atendimentos = _atendimentoService.GetConsultationsAndExamsByDoctorId(id);
+      return atendimentos;
+   }
+
+   [HttpGet("paciente/{id}/atendimentos")]
+   public List<AtendimentoViewModel> GetConsultationsAndExamsByPatientId(int id)
+   {
+      var atendimentos = _atendimentoService.GetConsultationsAndExamsByPatientId(id);
+      return atendimentos;
+   }
+
+   [HttpGet("atendimentos/porPeriodo/{inicio}/{fim}")]
+   public List<AtendimentoViewModel> GetConsultationsAndExamsByDates(string inicio, string fim)
+   {
+      var atendimentos = _atendimentoService.GetConsultationsAndExamsByDates(inicio, fim);
+      return atendimentos;
+   }
+
 
    [HttpPost("atendimento")]
    public IActionResult Post([FromBody] NewAtendimentoInputModel atendimento)
    {
       _atendimentoService.Create(atendimento);
       return CreatedAtAction(nameof(Get), atendimento);
- 
+
    }
 
-   [HttpPut]
+   [HttpPut("update/{id}")]
    public IActionResult Put(int id, [FromBody] NewAtendimentoInputModel atendimento)
    {
       if (_atendimentoService.GetById(id) == null)
          return NoContent();
-      _atendimentoService.Update(id,atendimento);
-      return Ok(_atendimentoService.GetById(id)); 
+      _atendimentoService.Update(id, atendimento);
+      return Ok(_atendimentoService.GetById(id));
    }
 
-   [HttpDelete]
-   public IActionResult Delete([FromBody] AtendimentoViewModel atendimento)
+   [HttpDelete("delete/{id}")]
+   public IActionResult Delete(int id)
    {
-      _atendimentoService.Delete(atendimento.AtendimentoId);
-      return Ok(atendimento);
+      _atendimentoService.Delete(id);
+      return Ok("Atendimento deletado com sucesso!");
    }
 
 }
