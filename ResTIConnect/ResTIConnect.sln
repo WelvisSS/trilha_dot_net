@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Domain", "ResTIConnect.Domain\ResTIConnect.Domain.csproj", "{94A59489-EBD5-4544-ADEA-6FDBE7514E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Infrastructure", "ResTIConnect.Infrastructure\ResTIConnect.Infrastructure.csproj", "{9CC49A56-D623-465B-8807-CD27DC35E191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Test", "ResTIConnect.Test\ResTIConnect.Test.csproj", "{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.WebAPI", "WebAPI\ResTIConnect.WebAPI.csproj", "{E894DBC8-CA34-4FE9-9279-71E6E9003954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Aplication", "ResTIConnect.Aplication\ResTIConnect.Aplication.csproj", "{134A9149-D2A1-463A-91EF-637806C4B8C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94A59489-EBD5-4544-ADEA-6FDBE7514E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A59489-EBD5-4544-ADEA-6FDBE7514E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A59489-EBD5-4544-ADEA-6FDBE7514E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A59489-EBD5-4544-ADEA-6FDBE7514E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC49A56-D623-465B-8807-CD27DC35E191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC49A56-D623-465B-8807-CD27DC35E191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC49A56-D623-465B-8807-CD27DC35E191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC49A56-D623-465B-8807-CD27DC35E191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA6EAA1-FB24-4E46-8D00-2D87DE027816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E894DBC8-CA34-4FE9-9279-71E6E9003954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E894DBC8-CA34-4FE9-9279-71E6E9003954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E894DBC8-CA34-4FE9-9279-71E6E9003954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E894DBC8-CA34-4FE9-9279-71E6E9003954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{134A9149-D2A1-463A-91EF-637806C4B8C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{134A9149-D2A1-463A-91EF-637806C4B8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{134A9149-D2A1-463A-91EF-637806C4B8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{134A9149-D2A1-463A-91EF-637806C4B8C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
