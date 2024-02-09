@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ResTIConnect.Domain.Entities;
+
 namespace ResTIConnect.Infrastructure.Persistence;
 
 public class ResTIConnectDbContext : DbContext
 {
     public DbSet<Perfil> Perfis { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Enderecos> Enderecos { get; set; }
+
     public ResTIConnectDbContext(DbContextOptions<ResTIConnectDbContext> options) : base(options)
     {
 
