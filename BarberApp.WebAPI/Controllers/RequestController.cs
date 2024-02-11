@@ -33,18 +33,6 @@ public class RequestControllers : ControllerBase
         return Ok(request);
     }
 
-    [HttpGet("client/{id}/requests")]
-    public IActionResult GetByClientId(int id)
-    {
-        List<RequestViewModel> requests = _requestService.GetByClientId(id);
-
-        if (requests is null)
-        {
-            return NoContent();
-        }
-        return Ok(requests);
-    }
-
     [HttpPost("requests")]
     public IActionResult Post([FromBody] NewRequestInputModel request)
     {

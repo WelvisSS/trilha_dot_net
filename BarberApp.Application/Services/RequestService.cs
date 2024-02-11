@@ -71,19 +71,6 @@ public class RequestService : IRequestService
         return PacienteViewModel;
     }
 
-    public List<RequestViewModel> GetByClientId(int id)
-    {
-        var _requests = _context.Requests.Where(m => m.ClientId == id).Select(m => new RequestViewModel
-        {
-            RequestId = m.RequestId,
-            ClientId = m.ClientId,
-            Date = m.Date,
-            RequiredAmount = m.RequiredAmount
-        }).ToList();
-
-        return _requests;
-    }
-
     public void Update(int id, NewRequestInputModel paciente)
     {
         var _request = GetByDbId(id);

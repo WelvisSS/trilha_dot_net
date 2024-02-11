@@ -6,7 +6,6 @@ public interface IRequestService
 {
     public List<RequestViewModel> GetAll();
     public RequestViewModel? GetById(int id);
-    public List<RequestViewModel> GetByClientId(int id);
     public int Create(NewRequestInputModel request);
     public void Update(int id, NewRequestInputModel request);
     public void Delete(int id);
