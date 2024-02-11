@@ -3,8 +3,8 @@ using BarberApp.Application.InputModels;
 using BarberApp.Application.ViewModels;
 using BarberApp.Domain.Entities;
 using BarberApp.Domain.Exceptions;
-using BarberApp.Infrastructure.Persistence;
 using static BarberApp.Domain.Exceptions.RequestException;
+using BarberApp.Infrastructure.Persistence.Context;
 
 namespace BarberApp.Application.Services;
 
@@ -51,16 +51,6 @@ public class RequestService : IRequestService
             ClientId = m.ClientId,
             Date = m.Date,
             RequiredAmount = m.RequiredAmount
-
-
-            // ServiceId = m.ServiceId,
-            // RequestId = m.RequestId,
-            // EmployeeId = m.EmployeeId,
-            // ServieType = m.ServieType,
-            // Amount = m.Amount,
-            // Quantity = m.Quantity,
-            // Date = m.Date
-
 
         }).ToList();
 

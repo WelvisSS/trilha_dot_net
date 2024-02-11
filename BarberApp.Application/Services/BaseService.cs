@@ -1,4 +1,4 @@
-﻿using BarberApp.Infrastructure.Persistence;
+﻿using BarberApp.Infrastructure.Persistence.Context;
 
 namespace BarberApp.Application.Services;
 

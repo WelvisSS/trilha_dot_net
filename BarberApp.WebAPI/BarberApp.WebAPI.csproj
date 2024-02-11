@@ -9,11 +9,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BarberApp.Application\BarberApp.Application.csproj" />
+    <ProjectReference Include="..\BarberApp.Infrastructure\BarberApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\BarberApp.Domain\BarberApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>

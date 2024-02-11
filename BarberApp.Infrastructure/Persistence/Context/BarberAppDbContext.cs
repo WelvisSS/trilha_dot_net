@@ -1,7 +1,7 @@
 ﻿using BarberApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BarberApp.Infrastructure.Persistence;
+namespace BarberApp.Infrastructure.Persistence.Context;
 
 public class BarberAppDbContext : DbContext
 {

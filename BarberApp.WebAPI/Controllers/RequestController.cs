@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using BarberApp.Infrastructure.Persistence.Configurations;
-using BarberApp.Domain.Entities;
 using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.ViewModels;
 using BarberApp.Application.InputModels;
@@ -14,11 +12,25 @@ public class RequestControllers : ControllerBase
     private readonly IRequestService _requestService;
     public List<RequestViewModel> Requests => _requestService.GetAll();
     public RequestControllers(IRequestService service) => _requestService = service;
+
+
     [HttpGet("requests")]
     public IActionResult Get()
     {
         return Ok(Requests);
 
+    }
+
+    [HttpGet("requests/{id}")]
+    public IActionResult Get(int id)
+    {
+        RequestViewModel? request = _requestService.GetById(id);
+
+        if (request is null)
+        {
+            return NoContent();
+        }
+        return Ok(request);
     }
 
     [HttpPost("requests")]
@@ -32,9 +44,11 @@ public class RequestControllers : ControllerBase
     [HttpPut("requests/{id}")]
     public IActionResult Put(int id, [FromBody] NewRequestInputModel request)
     {
+        if (_requestService.GetById(id) == null)
+            return NoContent();
+
         _requestService.Update(id, request);
         return Ok(request);
-
     }
 
     [HttpDelete("requests/{id}")]
