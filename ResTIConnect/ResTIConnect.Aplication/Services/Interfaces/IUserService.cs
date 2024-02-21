@@ -2,7 +2,7 @@ using ResTIConnect.Aplication.InputModels;
 using ResTIConnect.Aplication.ViewModels;
 using ResTIConnect.Infrastructure.Persistence;
 
-namespace ResTIConnect.Aplication;
+namespace ResTIConnect.Aplication.Services.Interfaces;
 public interface IUserService
 {
      public List<UserViewModel> GetAll();
