@@ -6,6 +6,7 @@ public class ResTIConnectDbContext : DbContext
 {
     public DbSet<Perfil> Perfis { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Eventos> Eventos { get; set; }
     public ResTIConnectDbContext(DbContextOptions<ResTIConnectDbContext> options) : base(options)
     {
 
