@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ResTIConnect.Aplication;
 using ResTIConnect.Aplication.Services;
 using ResTIConnect.Aplication.Services.Interfaces;
+using ResTIConnect.Infrastructure.Auth;
 using ResTIConnect.Infrastructure.Persistence;
 
 
@@ -15,6 +16,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEventoService, EventoService>();
 builder.Services.AddScoped<IEnderecoService, EnderecoService>();
 builder.Services.AddScoped<ISistemaService, SistemaService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 builder.Services.AddDbContext<ResTIConnectDbContext>(options =>

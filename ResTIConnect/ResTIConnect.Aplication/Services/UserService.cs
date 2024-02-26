@@ -1,20 +1,25 @@
 
 using System.Data.Common;
+using System.Security.Cryptography;
+using System.Text;
 using ResTIConnect.Aplication.InputModels;
 using ResTIConnect.Aplication.Services.Interfaces;
 using ResTIConnect.Aplication.ViewModels;
 using ResTIConnect.Domain;
 using ResTIConnect.Domain.Entities;
+using ResTIConnect.Infrastructure.Auth;
 using ResTIConnect.Infrastructure.Persistence;
 
 namespace ResTIConnect.Aplication.Services;
 
-public class UserService : IUserService 
+public class UserService : IUserService
 {
+    private readonly IAuthService _authService;
     private readonly ResTIConnectDbContext _context;
-    public UserService(ResTIConnectDbContext context)
+    public UserService(ResTIConnectDbContext context, IAuthService authService)
     {
         _context = context;
+        _authService = authService;
     }
 
     private User GetByDbId(int id)
@@ -29,15 +34,23 @@ public class UserService : IUserService
 
     public int Create(NewUserInputModel user)
     {
+        // using (var sha256 = SHA256.Create())
+        // {
+        //     var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(user.Password));
+        //     var hash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+        //     user.Password = hash;
+        // }
+        user.Password = _authService.ComputeSha256Hash(user.Password);
         var _user = new User
         {
+
             Nome = user.Name,
             UsuarioId = user.UserId,
             Apelido = user.Nick,
             Email = user.Email,
             Senha = user.Password,
             Telefone = user.Phone,
-        
+
         };
         _context.Users.Add(_user);
 
