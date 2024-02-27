@@ -6,5 +6,5 @@ namespace ResTIConnect.Aplication;
 
 public interface ILoginService
 {
-    public string Login(NewLoginInputModel login);
+    public LoginViewModel Login(NewLoginInputModel login);
 }

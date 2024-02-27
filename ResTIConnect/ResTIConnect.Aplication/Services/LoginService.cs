@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ResTIConnect.Aplication.InputModels;
+using ResTIConnect.Aplication.ViewModels;
 using ResTIConnect.Infrastructure.Auth;
 using ResTIConnect.Infrastructure.Persistence;
 
@@ -14,11 +15,28 @@ public class LoginService : ILoginService
         _context = context;
         _authService = authService;
     }
-    public string Login(NewLoginInputModel login)
+    public LoginViewModel Login(NewLoginInputModel login)
     {
+        var _passHashed = _authService.ComputeSha256Hash(login.Password);
         if (login.Email == null || login.Password == null)
             throw new ValidationException("Email e/ou senha inválidos");
-        if (_context.Users.Any(x => x.Email == login.Email) && _context.Users.Any(x => x.Senha == _authService.ComputeSha256Hash(login.Password)));
-        return "Login efetuado com sucesso";
+        if (_context.Users.Any(x => x.Email == login.Email)
+        && _context.Users.Any(x => x.Senha == _passHashed))
+        {
+            var _user = _context.Users.FirstOrDefault(x => x.Email == login.Email);
+            var _token = _authService.GenerateJwtToken(login.Email, _user!.Perfis!.Select(x => x.Permissoes).FirstOrDefault() ?? "user");
+            return new LoginViewModel
+            {
+                Email = login.Email,
+                Token = _token
+            };
+        }
+        else
+        {
+            throw new ValidationException("Email e/ou senha inválidos");
+
+        }
+
+
     }
 }
