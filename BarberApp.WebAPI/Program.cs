@@ -2,11 +2,16 @@ using BarberApp.Application.Services;
 using BarberApp.Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using BarberApp.Infrastructure.Persistence.Context;
+using BarberApp.Infrastructure.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IRequestService, RequestService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IRequestService, RequestService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddDbContext<BarberAppDbContext>(options =>
 {

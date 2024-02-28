@@ -5,16 +5,19 @@ using BarberApp.Domain.Entities;
 using static BarberApp.Domain.Exceptions.EmployeeException;
 using BarberApp.Infrastructure.Persistence.Context;
 using System.Data.Common;
+using BarberApp.Infrastructure.Auth;
 
 namespace BarberApp.Application.Services;
 
 public class EmployeeService : IEmployeeService
 {
     public readonly BarberAppDbContext _context;
+    private readonly IAuthService _authService;
 
-    public EmployeeService(BarberAppDbContext context)
+    public EmployeeService(BarberAppDbContext context, IAuthService authService)
     {
         _context = context;
+        _authService = authService;
     }
     public Employee GetByDbId(int id)
     {
@@ -25,6 +28,7 @@ public class EmployeeService : IEmployeeService
     public int Create(NewEmployeeInputModel employee)
     {
         int id = 1;
+        employee.Password = _authService.ComputeSha256Hash(employee.Password);
         var _employee = new Employee
         {
             PersonId = employee.PersonId,
