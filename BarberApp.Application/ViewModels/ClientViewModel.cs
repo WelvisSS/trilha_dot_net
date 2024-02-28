@@ -2,9 +2,9 @@
 
 public class ClientViewModel
 {
-    public required int ClientId { get; set; }
-    public required int PersonId {get; set;}
-    public required string Name { get; set; }
-    public required string Email { get; set; }
-    public required string CEP { get; set; }
+    public int ClientId { get; set; }
+    public int PersonId {get; set;}
+    public string? Name { get; set; }
+    public string? Email { get; set; }
+    public string? CEP { get; set; }
 }

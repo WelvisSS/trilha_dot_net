@@ -2,6 +2,7 @@
 using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.ViewModels;
 using BarberApp.Domain.Entities;
+using BarberApp.Infrastructure.Auth;
 using BarberApp.Infrastructure.Persistence.Context;
 using static BarberApp.Domain.Exceptions.ClientException;
 
@@ -11,9 +12,12 @@ public class ClientService : IClientService
 {
     public readonly BarberAppDbContext _context;
 
-    public ClientService(BarberAppDbContext context)
+    private readonly IAuthService _authService;
+
+    public ClientService(BarberAppDbContext context, IAuthService authService)
     {
         _context = context;
+        _authService = authService;
     }
 
     public Client GetByDbId(int id)
@@ -23,11 +27,14 @@ public class ClientService : IClientService
     }
     public int Create(NewClientInputModel client)
     {
+        client.Password = _authService.ComputeSha256Hash(client.Password);
         var _client = new Client
         {
             PersonId = client.PersonId,
             Name = client.Name,
             Email = client.Email,
+            Password = client.Password,
+            Role = client.Role,
             CEP = client.CEP,
         };
 

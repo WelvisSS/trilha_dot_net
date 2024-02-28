@@ -8,7 +8,7 @@ public class BarberAppDbContext : DbContext
     public DbSet<Client> Clients { get; set; }
     public DbSet<Employee> Employees { get; set; }
     public DbSet<LegalPerson> LegalPersons { get; set; }
-    public DbSet<Person> Persons { get; set; }
+    // public DbSet<Person> Persons { get; set; }
     public DbSet<PhysicalPerson> PhysicalPersons { get; set; }
     public DbSet<Service> Services { get; set; }
     public DbSet<Request> Requests { get; set; }
