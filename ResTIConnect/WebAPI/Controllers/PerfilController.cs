@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ResTIConnect.Aplication.InputModels;
 using ResTIConnect.Aplication.Services.Interfaces;
 using ResTIConnect.Aplication.ViewModels;
@@ -7,6 +8,7 @@ namespace ResTIConnect.WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/v0.1/")]
+[Authorize]
 public class PerfilController : ControllerBase
 {
     private readonly IPerfilService _perfilService;
