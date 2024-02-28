@@ -3,8 +3,9 @@
 public class NewClientInputModel
 {
     public int PersonId {get; set;}
-    public required string Name { get; set; }
-    public required string Email { get; set; }
-    public required string CEP { get; set; }
+    public string? Name { get; set; }
+    public string? Email { get; set; }
+    public string? Password { get; set; }
+    public string? CEP { get; set; }
     // public ICollection<Request>? Requests { get; }
 }
