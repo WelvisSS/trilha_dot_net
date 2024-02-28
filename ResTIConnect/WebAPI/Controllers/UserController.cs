@@ -3,12 +3,14 @@ using ResTIConnect.Aplication.InputModels;
 using ResTIConnect.Aplication.Services.Interfaces;
 using ResTIConnect.Aplication.ViewModels;
 using ResTIConnect.Aplication;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace ResTIConnect.WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/v0.1/")]
+[Authorize]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
