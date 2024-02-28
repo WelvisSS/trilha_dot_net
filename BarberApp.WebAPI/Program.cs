@@ -3,6 +3,7 @@ using BarberApp.Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using BarberApp.Infrastructure.Persistence.Context;
 using BarberApp.Infrastructure.Auth;
+using BarberApp.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 
 builder.Services.AddDbContext<BarberAppDbContext>(options =>
 {

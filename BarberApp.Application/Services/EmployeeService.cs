@@ -35,6 +35,7 @@ public class EmployeeService : IEmployeeService
             EmployeeId = id++,
             Name = employee.Name,
             PhoneNumber = employee.PhoneNumber
+
         };
 
         _context.Employees.Add(_employee);
@@ -73,7 +74,7 @@ public class EmployeeService : IEmployeeService
         return EmployeeViewModel;
     }
 
-// Implementar após criação do service;
+    // Implementar após criação do service;
     // public List<ServiceViewModel> GetByEmployeeId(int id)
     // {
     //     var _employees = _context.Employees.Where(m => m.ClientId == id).Select(m => new EmployeeViewModel
