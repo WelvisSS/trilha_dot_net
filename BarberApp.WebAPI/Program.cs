@@ -3,6 +3,7 @@ using BarberApp.Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using BarberApp.Infrastructure.Persistence.Context;
 using BarberApp.Infrastructure.Auth;
+using BarberApp.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,15 +13,19 @@ builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+
 
 builder.Services.AddDbContext<BarberAppDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("BarberAppDb");
 
-    var serverVersion = ServerVersion.AutoDetect(connectionString);
+    // var serverVersion = ServerVersion.AutoDetect(connectionString);
 
-    options.UseMySql(connectionString, serverVersion);
+    options.UseSqlite(connectionString ?? throw new InvalidOperationException("Connection string 'BarberAppDbContext' not found."));
 });
+
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

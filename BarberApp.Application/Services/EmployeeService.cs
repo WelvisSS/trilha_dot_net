@@ -27,14 +27,18 @@ public class EmployeeService : IEmployeeService
     }
     public int Create(NewEmployeeInputModel employee)
     {
-        int id = 1;
+        int id = _context.Employees.Max(x => x.EmployeeId);
         employee.Password = _authService.ComputeSha256Hash(employee.Password);
         var _employee = new Employee
         {
             PersonId = employee.PersonId,
-            EmployeeId = id++,
+            EmployeeId = ++id,
             Name = employee.Name,
-            PhoneNumber = employee.PhoneNumber
+            PhoneNumber = employee.PhoneNumber,
+            Email = employee.Email,
+            Password = employee.Password,
+
+
         };
 
         _context.Employees.Add(_employee);
@@ -54,7 +58,8 @@ public class EmployeeService : IEmployeeService
         {
             EmployeeId = m.EmployeeId,
             Name = m.Name,
-            PhoneNumber = m.PhoneNumber
+            PhoneNumber = m.PhoneNumber,
+            Email = m.Email
         }).ToList();
 
         return _employees;
@@ -69,11 +74,12 @@ public class EmployeeService : IEmployeeService
             EmployeeId = _employee.EmployeeId,
             Name = _employee.Name,
             PhoneNumber = _employee.PhoneNumber,
+            Email = _employee.Email
         };
         return EmployeeViewModel;
     }
 
-// Implementar após criação do service;
+    // Implementar após criação do service;
     // public List<ServiceViewModel> GetByEmployeeId(int id)
     // {
     //     var _employees = _context.Employees.Where(m => m.ClientId == id).Select(m => new EmployeeViewModel
