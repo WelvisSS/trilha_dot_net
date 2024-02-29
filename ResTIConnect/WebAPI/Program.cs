@@ -2,6 +2,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using ResTIConnect.Aplication;
 using ResTIConnect.Aplication.Services;
@@ -53,6 +54,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdminRole", policy =>
+        policy.RequireRole("Admin"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -69,3 +76,19 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// // Adiciona a função de administrador
+// var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+// if (!await roleManager.RoleExistsAsync("Admin"))
+// {
+//     await roleManager.CreateAsync(new IdentityRole("Admin"));
+// }
+//
+// // Cria um usuário e atribui a função de administrador a ele
+// var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+// var user = new IdentityUser { UserName = "admin@example.com", Email = "admin@example.com" };
+// var result = await userManager.CreateAsync(user, "SuaSenhaAqui");
+// if (result.Succeeded)
+// {
+//     await userManager.AddToRoleAsync(user, "Admin");
+// }
