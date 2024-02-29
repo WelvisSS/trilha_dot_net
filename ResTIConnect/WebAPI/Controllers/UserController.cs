@@ -33,6 +33,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("user")]
+    [AllowAnonymous]
     public IActionResult Post([FromBody] NewUserInputModel user)
     {
         _userService.Create(user);
