@@ -2,12 +2,14 @@
 using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.ViewModels;
 using BarberApp.Application.InputModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TechMed.WebAPI.Controllers;
 
 
 [ApiController]
 [Route("/api/v0.1/")]
+[Authorize]
 public class EmployeeControllers : ControllerBase
 {
     private readonly IEmployeeService _employeeService;
@@ -34,7 +36,7 @@ public class EmployeeControllers : ControllerBase
         return Ok(employee);
     }
 
-//Implementar apos criação do service
+    //Implementar apos criação do service
     // [HttpGet("client/{id}/employees")]
     // public IActionResult GetByClientId(int id)
     // {
@@ -48,6 +50,7 @@ public class EmployeeControllers : ControllerBase
     // }
 
     [HttpPost("employees")]
+    [AllowAnonymous]
     public IActionResult Post([FromBody] NewEmployeeInputModel employee)
     {
         _employeeService.Create(employee);

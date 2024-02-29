@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.ViewModels;
 using BarberApp.Application.InputModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TechMed.WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/v0.1/")]
+[Authorize]
 public class RequestControllers : ControllerBase
 {
     private readonly IRequestService _requestService;
