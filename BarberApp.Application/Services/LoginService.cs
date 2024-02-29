@@ -47,7 +47,7 @@ public class LoginService : ILoginService
         && _context.Employees.Any(x => x.Password == _passHashed))
         {
             var _user = _context.Employees.FirstOrDefault(x => x.Email == login.email);
-            var _token = _authService.GenerateJwtToken(login.email, _user.Role);
+            var _token = _authService.GenerateJwtToken(login.email,"employee");
             return new LoginViewModel
             {
                 email = login.email,

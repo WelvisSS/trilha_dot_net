@@ -39,7 +39,6 @@ public class ClientController : ControllerBase
     {
         _clientService.Create(client);
         return CreatedAtAction(nameof(Get), client);
-
     }
 
     [HttpPut("clients/{id}")]

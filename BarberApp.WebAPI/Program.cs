@@ -15,14 +15,17 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 
+
 builder.Services.AddDbContext<BarberAppDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("BarberAppDb");
 
-    var serverVersion = ServerVersion.AutoDetect(connectionString);
+    // var serverVersion = ServerVersion.AutoDetect(connectionString);
 
-    options.UseMySql(connectionString, serverVersion);
+    options.UseSqlite(connectionString ?? throw new InvalidOperationException("Connection string 'BarberAppDbContext' not found."));
 });
+
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
