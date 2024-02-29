@@ -2,12 +2,14 @@
 using BarberApp.Application.Services.Interfaces;
 using BarberApp.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TechMed.WebAPI.Controllers;
 
 
 [ApiController]
 [Route("/api/v0.1/")]
+[Authorize]
 public class ClientController : ControllerBase
 {
     private readonly IClientService _clientService;
@@ -35,6 +37,7 @@ public class ClientController : ControllerBase
     }
 
     [HttpPost("clients")]
+    [AllowAnonymous]
     public IActionResult Post([FromBody] NewClientInputModel client)
     {
         _clientService.Create(client);
