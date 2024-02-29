@@ -8,7 +8,7 @@ namespace ResTIConnect.WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/v0.1/")]
-[Authorize (Policy = "RequireAdminRole")]
+[Authorize]
 public class SistemaController : ControllerBase
 {
     private readonly ISistemaService _sistemaService;

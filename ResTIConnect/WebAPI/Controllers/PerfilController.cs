@@ -8,7 +8,7 @@ namespace ResTIConnect.WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/v0.1/")]
-[Authorize (Policy = "RequireAdminRole")]
+[Authorize]
 public class PerfilController : ControllerBase
 {
     private readonly IPerfilService _perfilService;
